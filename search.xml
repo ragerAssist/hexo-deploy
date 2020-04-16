@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>README</title>
-    <url>/2020/04/16/README/</url>
+    <title>Icdiff</title>
+    <url>/2020/04/17/README/</url>
     <content><![CDATA[<h1 id="Icdiff"><a href="#Icdiff" class="headerlink" title="Icdiff"></a>Icdiff</h1><p>Improved colored diff</p>
 <p><img src="http://www.jefftk.com/icdiff-css-demo.png" alt="screenshot"></p>
 <h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>Download the <a href="https://github.com/jeffkaufman/icdiff/releases" target="_blank" rel="noopener">latest</a> <code>icdiff</code> binary and put it on your PATH.</p>
@@ -47,15 +47,18 @@
 </ul>
 <h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p>This file is derived from <code>difflib.HtmlDiff</code> which is under <a href="http://www.python.org/download/releases/2.6.2/license/" target="_blank" rel="noopener">license</a>.<br>I release my changes here under the same license.  This is GPL compatible.</p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>分类</title>
-    <url>/categories/index.html</url>
-    <content><![CDATA[]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
   </entry>
   <entry>
     <title>关于</title>
     <url>/about/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>分类</title>
+    <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
 </search>
