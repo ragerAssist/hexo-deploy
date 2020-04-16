@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>ragerAssist&#39;s blog</title>
+  <icon>http://yoursite.com/icon.png</icon>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2020-04-16T07:04:10.015Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>ragerAssist</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>README</title>
+    <link href="http://yoursite.com/2020/04/16/README/"/>
+    <id>http://yoursite.com/2020/04/16/README/</id>
+    <published>2020-04-16T05:48:52.095Z</published>
+    <updated>2020-04-16T07:04:10.015Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Icdiff&quot;&gt;&lt;a href=&quot;#Icdiff&quot; class=&quot;headerlink&quot; title=&quot;Icdiff&quot;&gt;&lt;/a&gt;Icdiff&lt;/h1&gt;&lt;p&gt;Improved colored diff&lt;/p&gt;
+&lt;p&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+</feed>
