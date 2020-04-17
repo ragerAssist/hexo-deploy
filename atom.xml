@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-04-17T04:35:29.035Z</updated>
+  <updated>2020-04-17T05:11:11.933Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,18 +21,12 @@
     <link href="http://yoursite.com/2020/04/17/Icdiff/"/>
     <id>http://yoursite.com/2020/04/17/Icdiff/</id>
     <published>2020-04-16T18:20:05.000Z</published>
-    <updated>2020-04-17T04:35:29.035Z</updated>
+    <updated>2020-04-17T05:11:11.933Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;Icdiff&quot;&gt;&lt;a href=&quot;#Icdiff&quot; class=&quot;headerlink&quot; title=&quot;Icdiff&quot;&gt;&lt;/a&gt;Icdiff&lt;/h1&gt;&lt;p&gt;Improved colored diff&lt;/p&gt;
-&lt;p&gt;&lt;img
-        
-      
+      &lt;h1 id=&quot;Icdiff&quot;&gt;&lt;a href=&quot;#Icdiff&quot; class=&quot;headerlink&quot; title=&quot;Icdiff&quot;&gt;&lt;/a&gt;Icdiff&lt;/h1&gt;&lt;p&gt;Improved colored diff&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://www.jefftk.com/icdiff-css-demo.png&quot; alt=&quot;screenshot&quot;&gt;&lt;/p&gt;
     
     </summary>
     

@@ -5,6 +5,8 @@
     <url>/2020/04/17/Icdiff/</url>
     <content><![CDATA[<h1 id="Icdiff"><a href="#Icdiff" class="headerlink" title="Icdiff"></a>Icdiff</h1><p>Improved colored diff</p>
 <p><img src="http://www.jefftk.com/icdiff-css-demo.png" alt="screenshot"></p>
+<a id="more"></a>
+
 <h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>Download the <a href="https://github.com/jeffkaufman/icdiff/releases" target="_blank" rel="noopener">latest</a> <code>icdiff</code> binary and put it on your PATH.</p>
 <p>Alternatively, install with pip:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install git+https:&#x2F;&#x2F;github.com&#x2F;jeffkaufman&#x2F;icdiff.git</span><br></pre></td></tr></table></figure>
