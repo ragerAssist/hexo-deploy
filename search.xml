@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>simplegit-progit</title>
+    <url>/2020/04/17/simplegit-progit/</url>
+    <content><![CDATA[<h1 id="SimpleGit-Ruby-Library"><a href="#SimpleGit-Ruby-Library" class="headerlink" title="SimpleGit Ruby Library"></a>SimpleGit Ruby Library</h1><p>This library calls git commands and returns the output.</p>
+<p>Author : Scott Chacon</p>
+]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Icdiff</title>
     <url>/2020/04/17/Icdiff/</url>
     <content><![CDATA[<h1 id="Icdiff"><a href="#Icdiff" class="headerlink" title="Icdiff"></a>Icdiff</h1><p>Improved colored diff</p>
@@ -51,6 +61,228 @@
 ]]></content>
       <categories>
         <category>Test</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>ticgit</title>
+    <url>/2020/04/17/ticgit/</url>
+    <content><![CDATA[<p>Note: the original TicGit author has pulled all the TicGit-ng changes into his repository, creating a potentially confusing situation. The schacon TicGit repo, this one, is not consistently maintained. For up to date TicGit-ng info and code, check the canonical TicGit-ng repository at<br><a href="https://github.com/jeffWelling/ticgit" target="_blank" rel="noopener">https://github.com/jeffWelling/ticgit</a></p>
+<h2 id="TicGit-ng"><a href="#TicGit-ng" class="headerlink" title="TicGit-ng"></a>TicGit-ng</h2><p>This project provides a ticketing system built on Git that is kept in a<br>separate branch in your projects Git repository. Originally called TicGit,<br>it is now known as TicGit-ng to continue development and avoid namespace<br>clashes.</p>
+<h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>TicGit-ng is a simple ticketing system, roughly similar to the Lighthouse model, that is based in git. It provides a command line client that uses the ‘git’ gem to keep its ticketing information in a separate branch (called ‘ticgit-ng’) within your existing git repository. All the data is file based and rarely changing, decreasing the likelihood of a merge issue. Right now, ticket branch merges need to be done manually and separately, but work is being done on a <code>ti sync</code> command to make this easier and more intuitive.</p>
+<p>The idea is that it keeps your tickets in the same repository, but without mucking up your working tree. By using its own seperate branch to store its information it keeps the working trees in all your other branches untouched.</p>
+<p>There are two interfaces available, the command line <code>ti</code> command and the <code>ticgitweb</code> web interface, though <code>ticgitweb</code> has many more prerequisites than <code>ti</code>.</p>
+<p>It will automatically create the new branch the first time you use it, and it caches all the data (another working directory and index file) in your ~/.ticgit-ng directory by default. If you delete that directory, it will just create it again the next time, you will lose no data (except some of your saved preferences).</p>
+<p>TicGit-ng is currently using itself to store its feature requests and bug reports.</p>
+<h3 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h3><p>There are two sets of prerequisites, those for people who intend to just run <code>ti</code>, and another set for those who wish to run <code>ticgitweb</code> as well. <code>ticgitweb</code> has additional dependancies that aren’t required for <code>ti</code>‘s use.</p>
+<p><strong>ti</strong></p>
+<p>Required Packages: git, ruby, rubygems</p>
+<p>Required Ruby Gems: git</p>
+<p>To install these packages on a Debian system, or a Debian based system like Ubuntu, do</p>
+<pre><code>sudo aptitude install git ruby rubygems
+sudo gem install git</code></pre><p><strong>ticgitweb</strong></p>
+<p>Required Packages: git, ruby, rubygems</p>
+<p>Required Ruby Gems: git, sinatra, haml, sass</p>
+<p>To install these packages on a Debian system, or a Debian based system like Ubuntu, do</p>
+<pre><code>sudo aptitude install git ruby rubygems
+sudo gem install git sinatra haml sass</code></pre><p><strong>A Note about rubygems</strong></p>
+<p>While the version of rubygems available from the repositories on Debian 5.0.5 stable will work just fine for using the command line <code>ti</code> program, using <code>ticgitweb</code> requires some extra effort.<br>Older versions of rubygems, such as the one available on Debian 5.0.5, will not work out of the box with the new gem repositories because the .deb in stable relies on rubyforge rather than rubygems for its operations. See <a href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=558251" target="_blank" rel="noopener">this bug</a> for an example. If you are running an older version of rubygems, you may need to get the latest rubygems package from <a href="http://rubygems.org/" target="_blank" rel="noopener">http://rubygems.org/</a> or <a href="http://jaqque.sbih.org/kplug/apt-pinning.html" target="_blank" rel="noopener">apt</a> <a href="http://jeffwelling.github.com//2010/09/05/Apt-Pinning.html" target="_blank" rel="noopener">pinning</a> before being able to properly install the git and ticgit gems.</p>
+<p><strong>A Note about the git gem</strong></p>
+<p>The git gem requires a git version of 1.6.0.0 or later, but on Debian stable, git-core is currently (Sept 6th 2010) at 1.5.6.5.  This isn’t a fatal problem and we can continue using version 1.5.6.5 with the git gem, but you will see notices like this if you do</p>
+<pre><code>[WARNING] The git gem requires git 1.6.0.0 or later, but only found 1.5.6.5. You should probably upgrade.
+Please specify at least one action to execute.</code></pre><p>If these annoy you as they do me and you’ve set up <a href="http://jaqque.sbih.org/kplug/apt-pinning.html" target="_blank" rel="noopener">apt</a> <a href="http://jeffwelling.github.com//2010/09/05/Apt-Pinning.html" target="_blank" rel="noopener">pinning</a>, you can do</p>
+<pre><code>$ sudo aptitude -t testing install git-core</code></pre><p>And those notices should go away.</p>
+<h3 id="Installing"><a href="#Installing" class="headerlink" title="Installing"></a>Installing</h3><p>Installation on a Debian stable system.  Note that the command line interface for TicGit-ng can be run from Debian stable, but some of the gems required for the web interface may require you to use <a href="http://jaqque.sbih.org/kplug/apt-pinning.html" target="_blank" rel="noopener">apt</a> <a href="http://jeffwelling.github.com//2010/09/05/Apt-Pinning.html" target="_blank" rel="noopener">pinning</a> to run without errors.  See below</p>
+<p>To install TicGit-ng on your system, you can go one of two ways,</p>
+<pre><code>$ gem install TicGit-ng</code></pre><p>or, you can install it from source by downloading this repository building your own gem (see below).</p>
+<h3 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h3><p>To get a list of all commands with short description:</p>
+<pre><code>&gt; ti --help
+Usage: ti COMMAND [FLAGS] [ARGS]
+
+Options for help command:
+
+The available TicGit-ng commands are:
+    recent                           List recent activities
+    checkout                         Checkout a ticket
+    tag                              Modify tags of a ticket
+    comment                          Comment on a ticket
+    milestone                        List and modify milestones
+    assign                           Assings a ticket to someone
+    points                           Assign points to a ticket
+    state                            Change state of a ticket
+    show                             Show a ticket
+    new                              Create a new ticket
+    attach                           Attach file to ticket
+    list                             List tickets
+
+Common options:
+    -v, --version                    Show the version number
+    -h, --help                       Display this help
+&quot;help&quot; is not a command</code></pre><p>To get help about a specific command:</p>
+<pre><code>&gt; ti &lt;command&gt; --help
+## for example
+&gt; ti assign --help
+Usage: ti assign [options] [ticket_id]
+
+Options for assign command:
+    -c, --checkout TICKET            Checkout this ticket
+    -u, --user USER                  Assign the ticket to this user
+
+Common options:
+    -v, --version                    Show the version number
+    -h, --help                       Display this help</code></pre><p>The available commands are:</p>
+<pre><code>ti list     - show all tickets
+ti show     - show details of a specific ticket
+ti new      - create a new ticket
+ti checkout - checkout a ticket
+ti state    - change a ticket state (open, resolved, invalid, hold)
+ti comment  - add a comment to a ticket
+ti tag      - add or delete a tag from a ticket
+ti assign   - change to whom a ticket is assigned</code></pre><h3 id="Usage-Examples"><a href="#Usage-Examples" class="headerlink" title="Usage Examples"></a>Usage Examples</h3><p>The first time you use any command in Ticgit-ng, it will create a new branch in your repo called ‘ticgit-ng’ and setup a caching area in ~/.ticgit-ng.</p>
+<p>If you run it without arguments, it will tell you what is available to run</p>
+<pre><code>$ ti
+Please specify at least one action to execute.
+
+Usage: ti COMMAND [FLAGS] [ARGS]
+
+The available TicGit-ng commands are:
+    recent                           List recent activities
+    checkout                         Checkout a ticket
+    tag                              Modify tags of a ticket
+    comment                          Comment on a ticket
+    milestone                        List and modify milestones
+    assign                           Assings a ticket to someone
+    points                           Assign points to a ticket
+    state                            Change state of a ticket
+    show                             Show a ticket
+    new                              Create a new ticket
+    attach                           Attach file to ticket
+    list                             List tickets
+
+Common options:
+    -v, --version                    Show the version number
+    -h, --help                       Display this help</code></pre><p>The first time you run <code>ti list</code>, it will show an empty list.</p>
+<pre><code>$ ti list
+I, [2010-09-06T15:47:52.075485 #4820]  INFO -- : creating ticgit repo branch
+
+   TicId  Title                             State Date  Assgn    Tags                
+-----------------------------------------------------------------------------------------</code></pre><p>To add a new ticket you can use <code>ti new -t &#39;Title of ticket&#39;</code> and give it a title in one command line.</p>
+<pre><code>$ ti new -t &apos;my new ticket&apos;
+$ ti list
+
+   TicId  Title                             State Date  Assgn    Tags                
+-----------------------------------------------------------------------------------------
+   d7f2d8 my new ticket                     open  09/06 </code></pre><p>For the ‘comment’ and ‘new’ commands, if you don’t specify a ‘-m’ for the message, it puts you into $EDITOR  to write it. The ‘new’ action is especially useful with this, because you can also tag it and give it an initial comment when you create it this way:</p>
+<pre><code># ---
+# tags:
+# # first line will be the title of the tic, the rest will be the first comment
+# # if you would like to add initial tags, put them on the &apos;tags:&apos; line, comma delim
+#</code></pre><p>To edit a ticket, such as assigning a tag to the new ticket we created, we first checkout the ticket and then use <code>ti tag</code>.<br>Always checkout the ticket you intend to edit.  Some commands allow you to include a tic_id argument but that can get confusing to keep track of and most of the time several edits will be done to the same ticket anyway, so it is suggested you use <code>ti checkout</code> for convenience if nothing else.</p>
+<pre><code>#ti checkout can checkout tickets based on the TicId or based on it&apos;s place in the list
+$ ti checkout 1
+#checks out the first ticket, or to do the same thing by using the TicId
+$ ti checkout d7f2d8
+#then assign the tag
+$ ti tag &apos;bug&apos;
+#and view the result..
+$ ti list
+
+   TicId  Title                                           State Date  Assgn    Tags                
+-------------------------------------------------------------------------------------------------------
+*  d7f2d8 my new ticket                                   open  09/06          bug               </code></pre><p>To assign the ticket to someone, use the <code>ti assign</code> command.  I assign the ticket to myself below.</p>
+<pre><code>$ ti assign -u &apos;jeff.welling@gmail.com&apos;
+$ ti list
+
+   TicId  Title                                              State Date  Assgn    Tags                
+----------------------------------------------------------------------------------------------------------
+*  d7f2d8 my new ticket                                      open  09/06 jeff.we… bug  </code></pre><p>To change the state of a ticket, such as to change it from ‘open’ to ‘hold’ or ‘resolved’, use <code>ti state</code>. There are 4 valid states: hold, invalid, open, and resolved.</p>
+<pre><code>$ ti state hold
+$ ti list
+
+   TicId  Title                                              State Date  Assgn    Tags                
+----------------------------------------------------------------------------------------------------------</code></pre><p><em>Dramatic Gasp!</em><br>Where did all of our tickets go?  Don’t worry, this isn’t a bug and your tickets aren’t gone.  </p>
+<pre><code>$ ti list --states open,hold
+
+   TicId  Title                                              State Date  Assgn    Tags                
+----------------------------------------------------------------------------------------------------------
+*  d7f2d8 my new ticket                                      hold  09/06 jeff.we… bug                 </code></pre><p>By default <code>ti list</code> doesn’t show tickets with a state of ‘hold’, so we have to specify that we want to see those tickets with an argument.  Now you can see, out <code>ti state hold</code> command changed the state of that ticket to on hold. This can also be done without checking out the ticket by using <code>ti state 1 hold</code>.</p>
+<p>Where ticgit expects a ticket id, it will take either the number of the ticket on the last ‘list’ you did, or it will take the partial sha each ticket is assigned when it is created – that number never changes for the life of the ticket, even across repositories, so you can email that number to someone else working on the project so they can identify it. If nothing is specified, it will use the currently checked out ticket.</p>
+<pre><code>$ ti comment -m &quot;I&apos;m a new comment&quot;
+$ ti show
+Title: my new ticket
+TicId: d7f2d8f6d6ec3da1a1800a33fb090d590a533bac
+
+Assigned: jeff.welling@gmail.com
+Opened: Mon Sep 06 15:52:03 -0700 2010 (0 days)
+State: OPEN
+Points: no estimate
+Tags: bug
+
+Comments (1):
+  * Added 09/06 18:34 by jeff.welling@gmail.com
+  I&apos;m a new comment</code></pre><p><code>ti show</code> also has a ‘-f’ argument to be able to see comments that are longer than 3 lines, which would normally be truncated.</p>
+<p>The <code>ti list</code> command can also be sorted and filtered.</p>
+<pre><code>$ ti list --help
+Usage: ti list [options]
+
+Options for list command:
+    -l, --list                       Show the saved queries
+    -S, --saveas SAVENAME            Save this list as a saved name
+    -a, --assigned ASSIGNED          List only tickets assigned to someone
+    -s, --states STATE[,STATE]       List only tickets in a specific state(s)
+                                     Prefix the state with &apos;-&apos; to negate
+    -t, --tags TAG[,TAG]             List only tickets with specific tag(s)
+                                     Prefix the tag with &apos;-&apos; to negate
+    -o, --order ORDER                Field to order by - one of : assigned,state,date,title
+
+Common options:
+    -v, --version                    Show the version number
+    -h, --help                       Display this help</code></pre><p>So if you wanted to see a list of all your tickets that have the ‘feature’ tag, assigned to ‘<a href="mailto:jeff.welling@gmail.com">jeff.welling@gmail.com</a>’ and are ‘open’, ordered by date opened descending, and save that view as ‘not_mine’, you can run this:</p>
+<pre><code>$ ti list -t feature -s open -a jeff.welling@gmail.com -o date.desc -S not_mine</code></pre><p>Then if you want to later list tickets with the same options as you used above, use</p>
+<pre><code>$ ti list not_mine</code></pre><h2 id="Collaboration"><a href="#Collaboration" class="headerlink" title="Collaboration"></a>Collaboration</h2><p>If you have cloned a repository and would like to get the ticgit-ng branch for that repo (presuming they have one), do this.</p>
+<pre><code>$git branch ticgit-ng origin/ticgit-ng</code></pre><p>This will create a ticgit-ng branch in your local repo based on the ticgit-ng branch in origin.  Now you can run <code>ti list</code> and it will show you the ticgit-ng tickets for that repository.</p>
+<h3 id="Getting-the-TicGit-ng-ticgit-ng-branch"><a href="#Getting-the-TicGit-ng-ticgit-ng-branch" class="headerlink" title="Getting the TicGit-ng ticgit-ng branch"></a>Getting the TicGit-ng ticgit-ng branch</h3><p>To download your own copy of the TicGit-ng ticgit branch after cloning the repo, so that you can add or alter a bug yourself, follow these instructions.</p>
+<p>This will checkout a ticgit-ng branch and set it to track the ticgit-ng branch upstream in origin, and then checks out the master branch.  You must checkout the master branch because TicGit-ng gets confused if you are already in the ticgit-ng branch when running TicGit-ng.</p>
+<pre><code>$ git checkout origin/ticgit-ng
+$ git checkout -b ticgit-ng
+$ git checkout master</code></pre><p>This will show you all of the bugs in TicGit-ng’s ticgit-ng branch.</p>
+<pre><code>$ ti list</code></pre><p>To submit your changes back to the upstream maintainer, push the bugs in your ticgit-ng branch to your public repo on Github</p>
+<pre><code>$ git push origin ticgit-ng</code></pre><p>Then contact the upstream maintainer by sending a Pull Request or Email and ask them to review and accept your bug changes.</p>
+<h3 id="Sharing-your-tickets-with-others"><a href="#Sharing-your-tickets-with-others" class="headerlink" title="Sharing your tickets with others"></a>Sharing your tickets with others</h3><p>Sharing your ticgit tickets with other people is as easy as asking them either creating their ticgit-ng branch based on yours if they haven’t already started their own ticgit-ng branch, or pulling your ticgit-ng branch into theirs.</p>
+<p>If you host your repositories on <a href="http://www.github.com" target="_blank" rel="noopener">Github</a> as I do then this process is simplified some because you don’t have to worry about hosting your repository somewhere where other people can access it to pull your ticgit-ng branch.</p>
+<p>For example, when I want my friend wnight to have the changes I made to my tickets in my ticgit-ng repository, I do a</p>
+<pre><code>$ git push origin</code></pre><p>to update all my remote branches with my current ones, and then I ask him to do a</p>
+<pre><code>$ git checkout ticgit-ng
+$ git pull git@github.com:jeffWelling/ticgit.git ticgit-ng
+$ git checkout master</code></pre><p>to pull my changes into his ticgit-ng branch and then switch back to his master branch.  Now when he does <code>ti list</code> it will show the changes I made to the tickets on my system.</p>
+<h3 id="Incorporating-other-peoples-changes-into-your-ticgit-ng-branch"><a href="#Incorporating-other-peoples-changes-into-your-ticgit-ng-branch" class="headerlink" title="Incorporating other peoples changes into your ticgit-ng branch"></a>Incorporating other peoples changes into your ticgit-ng branch</h3><p>The process is much the same as above, except the rolls are reversed.  Once you know they have published their changes and you have a URL to do a git pull from, you simply do</p>
+<pre><code>$ git checkout ticgit-ng
+$ git pull SOURCE_URL ticgit-ng
+$ git checkout master</code></pre><p>Replacing SOURCE_URL with the URL you were told to pull from, now you can see the changes they made, in your ticgit-ng branch.  You can easily publish these changes with a <code>git push origin</code> so anyone following your work can also see these changes.</p>
+<h3 id="Next-generation-collaboration"><a href="#Next-generation-collaboration" class="headerlink" title="Next generation collaboration"></a>Next generation collaboration</h3><p>Changes made by <a href="http://github.com/pheres" target="_blank" rel="noopener">Bruno Santos</a> to add a <a href="http://github.com/jeffWelling/ticgit/commit/7388386fab4fb12c36e6eeb7d19eaa4e4b16b853" target="_blank" rel="noopener"><code>ti sync</code></a> command were integrated on February 15th 2011.  You can now use the <code>ti sync [options]</code> command to sync your tickets with anyone else you’ve added with <code>git remote add</code>.  To use <code>ti sync</code>, all you need to do is first make sure you’ve already added the remote source with <code>git remote add</code>, and then do</p>
+<pre><code>$ ti sync --repo REMOTE_SOURCE</code></pre><p>if you want to pull their tickets into your ticgit-ng branch <em>and</em> push your tickets to their ticgit-ng branch, or</p>
+<pre><code>$ ti sync --repo REMOTE_SOURCE --no-push</code></pre><p>if you want to pull their tickets into your ticgit-ng branch without pushing your tickets to their branch.</p>
+<p>More information on using ti sync can be gleemed from reviewing the <a href="https://github.com/jeffWelling/ticgit/blob/deving/spec/merging_spec.rb" target="_blank" rel="noopener">merge specs</a></p>
+<h3 id="Ticgitweb"><a href="#Ticgitweb" class="headerlink" title="Ticgitweb"></a>Ticgitweb</h3><p>To run the Sinatra enabled web UI for your TicGit-ng repo, simply cd to your repository and run ‘ticgitweb’, or ‘ticgitweb -p 3456’ to change the port to something other than ‘4567’, which is the Sinatra default.</p>
+<p>Here is what the Ticket listing looks like:</p>
+<p><a href="http://www.flickr.com/photos/chacon/2359042481/" target="_blank" rel="noopener" title="TicGitWeb Ticket List by schacon, on Flickr"><img src="http://farm4.static.flickr.com/3289/2359042481_065867a92e.jpg" width="500" height="258" alt="TicGitWeb Ticket List" /></a></p>
+<p>And here is an individual ticket:</p>
+<p><a href="http://www.flickr.com/photos/chacon/2359042513/" target="_blank" rel="noopener" title="TicGitWeb Ticket by schacon, on Flickr"><img src="http://farm4.static.flickr.com/3240/2359042513_6d4bd069d0.jpg" width="500" height="275" alt="TicGitWeb Ticket" /></a></p>
+<h2 id="Development"><a href="#Development" class="headerlink" title="Development"></a>Development</h2><p>The original author had used rspec to write specs for ticgit-ng, but one of the maintainers since then switched it over to bacon[<a href="http://www.ruby-forum.com/topic/137928" target="_blank" rel="noopener">1</a>][<a href="http://www.ruby-forum.com/topic/172139" target="_blank" rel="noopener">2</a>][<a href="http://testanything.org/wiki/index.php/Testing_with_Ruby" target="_blank" rel="noopener">3</a>] and I haven’t been too inclined to switch it back.</p>
+<h3 id="Prerequisites-1"><a href="#Prerequisites-1" class="headerlink" title="Prerequisites"></a>Prerequisites</h3><p>To install the prerequisites on Debian stable for testing ticgit-ng, you will need <a href="http://jaqque.sbih.org/kplug/apt-pinning.html" target="_blank" rel="noopener">apt</a> <a href="http://jeffwelling.github.com//2010/09/05/Apt-Pinning.html" target="_blank" rel="noopener">pinning</a>.</p>
+<pre><code>$ sudo aptitude -t testing install rubygems rake
+$ sudo gem install yard bacon</code></pre><p>I pull rubygems from testing to avoid a problem with gherkin creating a syntactically incorrect gemspec which makes a lot of noise whenever <code>gem</code> is called. I ran into a problem when gem was installing yard, it had a problem with the documentation but thankfully the error wasn’t fatal and was only about not being able to compile the documentation which I don’t use, so it continued without trouble.</p>
+<h3 id="How-To-Test"><a href="#How-To-Test" class="headerlink" title="How To Test"></a>How To Test</h3><p>To test your version of ticgit-ng, go to your ticgit-ng directory and run</p>
+<pre><code>rake bacon</code></pre><h3 id="How-to-generate-a-gem-from-your-development-copy-of-ticgit-ng"><a href="#How-to-generate-a-gem-from-your-development-copy-of-ticgit-ng" class="headerlink" title="How to generate a gem from your development copy of ticgit-ng"></a>How to generate a gem from your development copy of ticgit-ng</h3><p>To create a gem from your development copy of ticgit-ng, go to your ticgit-ng directory and do</p>
+<pre><code>rake gem</code></pre><p>This will create a pkg/ directory, which will contain a newly created ticgit-ng gem for you to install.</p>
+<p>More information on developing TicGit-ng and collaborating with other TicGit-ng developers at <a href="https://github.com/jeffWelling/ticgit/wiki/Development" target="_blank" rel="noopener">here</a></p>
+<p>More information on developing TicGit-ng and collaborating with other TicGit-ng developers at <a href="https://github.com/jeffWelling/ticgit/wiki/Development" target="_blank" rel="noopener">here</a></p>
+<h3 id="Alternatives"><a href="#Alternatives" class="headerlink" title="Alternatives"></a>Alternatives</h3><p>ditz<br>bugs everywhere<br>git-issues</p>
+<h2 id="Authors"><a href="#Authors" class="headerlink" title="Authors"></a>Authors</h2><p>Original Author:<br>Scott Chacon                (<a href="mailto:schacon@gmail.com">schacon@gmail.com</a>)</p>
+<p>Current Active Maintainer:<br>Jeff Welling                (<a href="mailto:jeff.welling@gmail.com">jeff.welling@gmail.com</a>)</p>
+<p>For a detailed list of contributors, use <code>git log</code>.</p>
+]]></content>
+      <categories>
+        <category>Git</category>
       </categories>
   </entry>
   <entry>
