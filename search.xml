@@ -52,13 +52,19 @@
       </categories>
   </entry>
   <entry>
-    <title>分类</title>
-    <url>/categories/index.html</url>
-    <content><![CDATA[]]></content>
+    <title></title>
+    <url>/README.html</url>
+    <content><![CDATA[<h1 id="ragerassist-github-io"><a href="#ragerassist-github-io" class="headerlink" title="ragerassist.github.io"></a>ragerassist.github.io</h1><p>Where my Hexo site is deployed.</p>
+]]></content>
   </entry>
   <entry>
     <title>关于</title>
     <url>/about/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>分类</title>
+    <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
 </search>
