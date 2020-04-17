@@ -288,13 +288,13 @@ $ sudo gem install yard bacon</code></pre><p>I pull rubygems from testing to avo
       </categories>
   </entry>
   <entry>
-    <title>关于</title>
-    <url>/about/index.html</url>
+    <title>分类</title>
+    <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>分类</title>
-    <url>/categories/index.html</url>
+    <title>关于</title>
+    <url>/about/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
 </search>
