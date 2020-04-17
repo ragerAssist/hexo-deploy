@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>simplegit-progit</title>
-    <url>/2020/04/17/simplegit-progit/</url>
-    <content><![CDATA[<h1 id="SimpleGit-Ruby-Library"><a href="#SimpleGit-Ruby-Library" class="headerlink" title="SimpleGit Ruby Library"></a>SimpleGit Ruby Library</h1><p>This library calls git commands and returns the output.</p>
-<p>Author : Scott Chacon</p>
-]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Icdiff</title>
     <url>/2020/04/17/Icdiff/</url>
     <content><![CDATA[<h1 id="Icdiff"><a href="#Icdiff" class="headerlink" title="Icdiff"></a>Icdiff</h1><p>Improved colored diff</p>
@@ -64,10 +54,22 @@
       </categories>
   </entry>
   <entry>
+    <title>simplegit-progit</title>
+    <url>/2020/04/17/simplegit-progit/</url>
+    <content><![CDATA[<h1 id="SimpleGit-Ruby-Library"><a href="#SimpleGit-Ruby-Library" class="headerlink" title="SimpleGit Ruby Library"></a>SimpleGit Ruby Library</h1><p>This library calls git commands and returns the output.</p>
+<p>Author : Scott Chacon</p>
+<a id="more"></a>]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+  </entry>
+  <entry>
     <title>ticgit</title>
     <url>/2020/04/17/ticgit/</url>
     <content><![CDATA[<p>Note: the original TicGit author has pulled all the TicGit-ng changes into his repository, creating a potentially confusing situation. The schacon TicGit repo, this one, is not consistently maintained. For up to date TicGit-ng info and code, check the canonical TicGit-ng repository at<br><a href="https://github.com/jeffWelling/ticgit" target="_blank" rel="noopener">https://github.com/jeffWelling/ticgit</a></p>
 <h2 id="TicGit-ng"><a href="#TicGit-ng" class="headerlink" title="TicGit-ng"></a>TicGit-ng</h2><p>This project provides a ticketing system built on Git that is kept in a<br>separate branch in your projects Git repository. Originally called TicGit,<br>it is now known as TicGit-ng to continue development and avoid namespace<br>clashes.</p>
+<a id="more"></a>
+
 <h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>TicGit-ng is a simple ticketing system, roughly similar to the Lighthouse model, that is based in git. It provides a command line client that uses the ‘git’ gem to keep its ticketing information in a separate branch (called ‘ticgit-ng’) within your existing git repository. All the data is file based and rarely changing, decreasing the likelihood of a merge issue. Right now, ticket branch merges need to be done manually and separately, but work is being done on a <code>ti sync</code> command to make this easier and more intuitive.</p>
 <p>The idea is that it keeps your tickets in the same repository, but without mucking up your working tree. By using its own seperate branch to store its information it keeps the working trees in all your other branches untouched.</p>
 <p>There are two interfaces available, the command line <code>ti</code> command and the <code>ticgitweb</code> web interface, though <code>ticgitweb</code> has many more prerequisites than <code>ti</code>.</p>
@@ -286,13 +288,13 @@ $ sudo gem install yard bacon</code></pre><p>I pull rubygems from testing to avo
       </categories>
   </entry>
   <entry>
-    <title>关于</title>
-    <url>/about/index.html</url>
+    <title>分类</title>
+    <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>分类</title>
-    <url>/categories/index.html</url>
+    <title>关于</title>
+    <url>/about/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
 </search>

@@ -25,13 +25,8 @@
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;SimpleGit-Ruby-Library&quot;&gt;&lt;a href=&quot;#SimpleGit-Ruby-Library&quot; class=&quot;headerlink&quot; title=&quot;SimpleGit Ruby Library&quot;&gt;&lt;/a&gt;SimpleGit Ruby
-        
-      
+      &lt;h1 id=&quot;SimpleGit-Ruby-Library&quot;&gt;&lt;a href=&quot;#SimpleGit-Ruby-Library&quot; class=&quot;headerlink&quot; title=&quot;SimpleGit Ruby Library&quot;&gt;&lt;/a&gt;SimpleGit Ruby Library&lt;/h1&gt;&lt;p&gt;This library calls git commands and returns the output.&lt;/p&gt;
+&lt;p&gt;Author : Scott Chacon&lt;/p&gt;
     
     </summary>
     
@@ -50,13 +45,8 @@
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;Note: the original TicGit author has pulled all the TicGit-ng changes into his repository, creating a potentially confusing situation.
-        
-      
+      &lt;p&gt;Note: the original TicGit author has pulled all the TicGit-ng changes into his repository, creating a potentially confusing situation. The schacon TicGit repo, this one, is not consistently maintained. For up to date TicGit-ng info and code, check the canonical TicGit-ng repository at&lt;br&gt;&lt;a href=&quot;https://github.com/jeffWelling/ticgit&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/jeffWelling/ticgit&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;TicGit-ng&quot;&gt;&lt;a href=&quot;#TicGit-ng&quot; class=&quot;headerlink&quot; title=&quot;TicGit-ng&quot;&gt;&lt;/a&gt;TicGit-ng&lt;/h2&gt;&lt;p&gt;This project provides a ticketing system built on Git that is kept in a&lt;br&gt;separate branch in your projects Git repository. Originally called TicGit,&lt;br&gt;it is now known as TicGit-ng to continue development and avoid namespace&lt;br&gt;clashes.&lt;/p&gt;
     
     </summary>
     
