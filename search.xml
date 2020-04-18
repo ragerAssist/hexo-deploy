@@ -1,59 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Icdiff</title>
-    <url>/2020/04/17/Icdiff/</url>
-    <content><![CDATA[<h1 id="Icdiff"><a href="#Icdiff" class="headerlink" title="Icdiff"></a>Icdiff</h1><p>Improved colored diff</p>
-<p><img src="http://www.jefftk.com/icdiff-css-demo.png" alt="screenshot"></p>
-<a id="more"></a>
-
-<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>Download the <a href="https://github.com/jeffkaufman/icdiff/releases" target="_blank" rel="noopener">latest</a> <code>icdiff</code> binary and put it on your PATH.</p>
-<p>Alternatively, install with pip:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install git+https:&#x2F;&#x2F;github.com&#x2F;jeffkaufman&#x2F;icdiff.git</span><br></pre></td></tr></table></figure>
-
-<p>It can be also installed using <a href="https://nixos.org/nix/" target="_blank" rel="noopener">Nix</a></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nix-env -i icdiff</span><br></pre></td></tr></table></figure>
-
-<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">icdiff [options] left_file right_file</span><br></pre></td></tr></table></figure>
-
-<p>在两列视图中显示文件的差异</p>
-<h3 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">--version             show program&#39;s version number and exit</span><br><span class="line">-h, --help            show this help message and exit</span><br><span class="line">--cols&#x3D;COLS           specify the width of the screen. Autodetection is Unix</span><br><span class="line">                      only</span><br><span class="line">--encoding&#x3D;ENCODING   specify the file encoding; defaults to utf8</span><br><span class="line">-E MATCHER, --exclude-lines&#x3D;MATCHER</span><br><span class="line">                      Do not diff lines that match this regex. Not</span><br><span class="line">                      compatible with the &#39;line-numbers&#39; option</span><br><span class="line">--head&#x3D;HEAD           consider only the first N lines of each file</span><br><span class="line">-H, --highlight       color by changing the background color instead of the</span><br><span class="line">                      foreground color.  Very fast, ugly, displays all</span><br><span class="line">                      changes</span><br><span class="line">-L LABELS, --label&#x3D;LABELS</span><br><span class="line">                      override file labels with arbitrary tags. Use twice,</span><br><span class="line">                      one for each file</span><br><span class="line">-N, --line-numbers    generate output with line numbers. Not compatible with</span><br><span class="line">                      the &#39;exclude-lines&#39; option.</span><br><span class="line">--no-bold             use non-bold colors; recommended for solarized</span><br><span class="line">--no-headers          don&#39;t label the left and right sides with their file</span><br><span class="line">                      names</span><br><span class="line">--output-encoding&#x3D;OUTPUT_ENCODING</span><br><span class="line">                      specify the output encoding; defaults to utf8</span><br><span class="line">-r, --recursive       recursively compare subdirectories</span><br><span class="line">-s, --report-identical-files</span><br><span class="line">                      report when two files are the same</span><br><span class="line">--show-all-spaces     color all non-matching whitespace including that which</span><br><span class="line">                      is not needed for drawing the eye to changes.  Slow,</span><br><span class="line">                      ugly, displays all changes</span><br><span class="line">--tabsize&#x3D;TABSIZE     tab stop spacing</span><br><span class="line">-u, --patch           generate patch. This is always true, and only exists</span><br><span class="line">                      for compatibility</span><br><span class="line">-U NUM, --unified&#x3D;NUM, --numlines&#x3D;NUM</span><br><span class="line">                      how many lines of context to print; can&#39;t be combined</span><br><span class="line">                      with --whole-file</span><br><span class="line">-W, --whole-file      show the whole file instead of just changed lines and</span><br><span class="line">                      context</span><br><span class="line">--strip-trailing-cr   strip any trailing carriage return at the end of an</span><br><span class="line">                      input line</span><br><span class="line">--color-map&#x3D;COLOR_MAP</span><br><span class="line">                      choose which colors are used for which items. Default</span><br><span class="line">                      is --color-map&#x3D;&#39;add:green_bold,change:yellow_bold,desc</span><br><span class="line">                      ription:blue,meta:magenta,separator:blue,subtract:red_</span><br><span class="line">                      bold&#39;.  You don&#39;t have to override all of them:</span><br><span class="line">                      &#39;--color-map&#x3D;separator:white,description:cyan</span><br></pre></td></tr></table></figure>
-
-<h2 id="Using-with-Git"><a href="#Using-with-Git" class="headerlink" title="Using with Git"></a>Using with Git</h2><p>To see what it looks like, try:</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git difftool --extcmd icdiff</span><br></pre></td></tr></table></figure>
-
-<p>To install this as a tool you can use with Git, copy<br><code>git-icdiff</code> into your PATH and run:</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git icdiff</span><br></pre></td></tr></table></figure>
-
-<p>You can configure <code>git-icdiff</code> in Git’s config:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global icdiff.options &#39;--highlight --line-numbers&#39;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Using-with-subversion"><a href="#Using-with-subversion" class="headerlink" title="Using with subversion"></a>Using with subversion</h2><p>To try it out, run:</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">svn diff --diff-cmd icdiff</span><br></pre></td></tr></table></figure>
-
-<h2 id="Using-with-Mercurial"><a href="#Using-with-Mercurial" class="headerlink" title="Using with Mercurial"></a>Using with Mercurial</h2><p>Add the following to your <code>~/.hgrc</code>:</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">[extensions]</span><br><span class="line">extdiff=</span><br><span class="line"></span><br><span class="line">[extdiff]</span><br><span class="line">cmd.icdiff=icdiff</span><br><span class="line">opts.icdiff=--recursive --line-numbers</span><br></pre></td></tr></table></figure>
-
-<p>Or check more <a href="http://ianobermiller.com/blog/2016/07/14/side-by-side-diffs-for-mercurial-hg-icdiff-revisited/" target="_blank" rel="noopener">in-depth setup instructions</a>.</p>
-<h2 id="Setting-up-a-dev-environment"><a href="#Setting-up-a-dev-environment" class="headerlink" title="Setting up a dev environment"></a>Setting up a dev environment</h2><p>Create a virtualenv and install the dev dependencies.<br>This is not needed for normal usage.</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">virtualenv venv</span><br><span class="line"><span class="built_in">source</span> venv/bin/activate</span><br><span class="line">pip install -r requirements-dev.txt</span><br></pre></td></tr></table></figure>
-
-<h2 id="Running-tests"><a href="#Running-tests" class="headerlink" title="Running tests"></a>Running tests</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">./test.sh python2</span><br><span class="line">./test.sh python3</span><br></pre></td></tr></table></figure>
-
-<h2 id="Making-a-release"><a href="#Making-a-release" class="headerlink" title="Making a release"></a>Making a release</h2><ul>
-<li>Update ChangeLog with all the changes since the last release</li>
-<li>Update <code>__version__</code> in <code>icdiff</code></li>
-<li>Run tests, make sure they pass</li>
-<li><code>git tag release-${version}</code></li>
-<li><code>git push origin release-${version}</code></li>
-</ul>
-<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p>This file is derived from <code>difflib.HtmlDiff</code> which is under <a href="http://www.python.org/download/releases/2.6.2/license/" target="_blank" rel="noopener">license</a>.<br>I release my changes here under the same license.  This is GPL compatible.</p>
-]]></content>
-      <categories>
-        <category>Test</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/2020/04/18/hello-world/</url>
     <content><![CDATA[<h1 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h1><p>This post is for testing.</p>
@@ -287,6 +234,59 @@ $ sudo gem install yard bacon</code></pre><p>I pull rubygems from testing to avo
       </categories>
   </entry>
   <entry>
+    <title>Icdiff</title>
+    <url>/2020/04/17/Icdiff/</url>
+    <content><![CDATA[<h1 id="Icdiff"><a href="#Icdiff" class="headerlink" title="Icdiff"></a>Icdiff</h1><p>Improved colored diff</p>
+<p><img src="http://www.jefftk.com/icdiff-css-demo.png" alt="screenshot"></p>
+<a id="more"></a>
+
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>Download the <a href="https://github.com/jeffkaufman/icdiff/releases" target="_blank" rel="noopener">latest</a> <code>icdiff</code> binary and put it on your PATH.</p>
+<p>Alternatively, install with pip:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install git+https:&#x2F;&#x2F;github.com&#x2F;jeffkaufman&#x2F;icdiff.git</span><br></pre></td></tr></table></figure>
+
+<p>It can be also installed using <a href="https://nixos.org/nix/" target="_blank" rel="noopener">Nix</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nix-env -i icdiff</span><br></pre></td></tr></table></figure>
+
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">icdiff [options] left_file right_file</span><br></pre></td></tr></table></figure>
+
+<p>在两列视图中显示文件的差异</p>
+<h3 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">--version             show program&#39;s version number and exit</span><br><span class="line">-h, --help            show this help message and exit</span><br><span class="line">--cols&#x3D;COLS           specify the width of the screen. Autodetection is Unix</span><br><span class="line">                      only</span><br><span class="line">--encoding&#x3D;ENCODING   specify the file encoding; defaults to utf8</span><br><span class="line">-E MATCHER, --exclude-lines&#x3D;MATCHER</span><br><span class="line">                      Do not diff lines that match this regex. Not</span><br><span class="line">                      compatible with the &#39;line-numbers&#39; option</span><br><span class="line">--head&#x3D;HEAD           consider only the first N lines of each file</span><br><span class="line">-H, --highlight       color by changing the background color instead of the</span><br><span class="line">                      foreground color.  Very fast, ugly, displays all</span><br><span class="line">                      changes</span><br><span class="line">-L LABELS, --label&#x3D;LABELS</span><br><span class="line">                      override file labels with arbitrary tags. Use twice,</span><br><span class="line">                      one for each file</span><br><span class="line">-N, --line-numbers    generate output with line numbers. Not compatible with</span><br><span class="line">                      the &#39;exclude-lines&#39; option.</span><br><span class="line">--no-bold             use non-bold colors; recommended for solarized</span><br><span class="line">--no-headers          don&#39;t label the left and right sides with their file</span><br><span class="line">                      names</span><br><span class="line">--output-encoding&#x3D;OUTPUT_ENCODING</span><br><span class="line">                      specify the output encoding; defaults to utf8</span><br><span class="line">-r, --recursive       recursively compare subdirectories</span><br><span class="line">-s, --report-identical-files</span><br><span class="line">                      report when two files are the same</span><br><span class="line">--show-all-spaces     color all non-matching whitespace including that which</span><br><span class="line">                      is not needed for drawing the eye to changes.  Slow,</span><br><span class="line">                      ugly, displays all changes</span><br><span class="line">--tabsize&#x3D;TABSIZE     tab stop spacing</span><br><span class="line">-u, --patch           generate patch. This is always true, and only exists</span><br><span class="line">                      for compatibility</span><br><span class="line">-U NUM, --unified&#x3D;NUM, --numlines&#x3D;NUM</span><br><span class="line">                      how many lines of context to print; can&#39;t be combined</span><br><span class="line">                      with --whole-file</span><br><span class="line">-W, --whole-file      show the whole file instead of just changed lines and</span><br><span class="line">                      context</span><br><span class="line">--strip-trailing-cr   strip any trailing carriage return at the end of an</span><br><span class="line">                      input line</span><br><span class="line">--color-map&#x3D;COLOR_MAP</span><br><span class="line">                      choose which colors are used for which items. Default</span><br><span class="line">                      is --color-map&#x3D;&#39;add:green_bold,change:yellow_bold,desc</span><br><span class="line">                      ription:blue,meta:magenta,separator:blue,subtract:red_</span><br><span class="line">                      bold&#39;.  You don&#39;t have to override all of them:</span><br><span class="line">                      &#39;--color-map&#x3D;separator:white,description:cyan</span><br></pre></td></tr></table></figure>
+
+<h2 id="Using-with-Git"><a href="#Using-with-Git" class="headerlink" title="Using with Git"></a>Using with Git</h2><p>To see what it looks like, try:</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git difftool --extcmd icdiff</span><br></pre></td></tr></table></figure>
+
+<p>To install this as a tool you can use with Git, copy<br><code>git-icdiff</code> into your PATH and run:</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git icdiff</span><br></pre></td></tr></table></figure>
+
+<p>You can configure <code>git-icdiff</code> in Git’s config:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global icdiff.options &#39;--highlight --line-numbers&#39;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Using-with-subversion"><a href="#Using-with-subversion" class="headerlink" title="Using with subversion"></a>Using with subversion</h2><p>To try it out, run:</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">svn diff --diff-cmd icdiff</span><br></pre></td></tr></table></figure>
+
+<h2 id="Using-with-Mercurial"><a href="#Using-with-Mercurial" class="headerlink" title="Using with Mercurial"></a>Using with Mercurial</h2><p>Add the following to your <code>~/.hgrc</code>:</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">[extensions]</span><br><span class="line">extdiff=</span><br><span class="line"></span><br><span class="line">[extdiff]</span><br><span class="line">cmd.icdiff=icdiff</span><br><span class="line">opts.icdiff=--recursive --line-numbers</span><br></pre></td></tr></table></figure>
+
+<p>Or check more <a href="http://ianobermiller.com/blog/2016/07/14/side-by-side-diffs-for-mercurial-hg-icdiff-revisited/" target="_blank" rel="noopener">in-depth setup instructions</a>.</p>
+<h2 id="Setting-up-a-dev-environment"><a href="#Setting-up-a-dev-environment" class="headerlink" title="Setting up a dev environment"></a>Setting up a dev environment</h2><p>Create a virtualenv and install the dev dependencies.<br>This is not needed for normal usage.</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">virtualenv venv</span><br><span class="line"><span class="built_in">source</span> venv/bin/activate</span><br><span class="line">pip install -r requirements-dev.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="Running-tests"><a href="#Running-tests" class="headerlink" title="Running tests"></a>Running tests</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">./test.sh python2</span><br><span class="line">./test.sh python3</span><br></pre></td></tr></table></figure>
+
+<h2 id="Making-a-release"><a href="#Making-a-release" class="headerlink" title="Making a release"></a>Making a release</h2><ul>
+<li>Update ChangeLog with all the changes since the last release</li>
+<li>Update <code>__version__</code> in <code>icdiff</code></li>
+<li>Run tests, make sure they pass</li>
+<li><code>git tag release-${version}</code></li>
+<li><code>git push origin release-${version}</code></li>
+</ul>
+<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p>This file is derived from <code>difflib.HtmlDiff</code> which is under <a href="http://www.python.org/download/releases/2.6.2/license/" target="_blank" rel="noopener">license</a>.<br>I release my changes here under the same license.  This is GPL compatible.</p>
+]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
+  </entry>
+  <entry>
     <title>simplegit-progit</title>
     <url>/2020/04/17/simplegit-progit/</url>
     <content><![CDATA[<h1 id="SimpleGit-Ruby-Library"><a href="#SimpleGit-Ruby-Library" class="headerlink" title="SimpleGit Ruby Library"></a>SimpleGit Ruby Library</h1><p>This library calls git commands and returns the output.</p>
@@ -305,13 +305,13 @@ $ sudo gem install yard bacon</code></pre><p>I pull rubygems from testing to avo
 </script>]]></content>
   </entry>
   <entry>
-    <title>关于</title>
-    <url>/about/index.html</url>
+    <title>分类</title>
+    <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>分类</title>
-    <url>/categories/index.html</url>
+    <title>关于</title>
+    <url>/about/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
 </search>
