@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>ragerAssist&#39;s blog</title>
-  <icon>http://yoursite.com/icon.png</icon>
+  <icon>http://ragerassist.cn/icon.png</icon>
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
-  <updated>2020-04-17T13:10:56.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <link href="http://ragerassist.cn/"/>
+  <updated>2020-04-18T01:37:53.000Z</updated>
+  <id>http://ragerassist.cn/</id>
   
   <author>
     <name>ragerAssist</name>
@@ -17,9 +17,32 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>hello-world</title>
+    <link href="http://ragerassist.cn/2020/04/18/hello-world/"/>
+    <id>http://ragerassist.cn/2020/04/18/hello-world/</id>
+    <published>2020-04-18T01:35:40.000Z</published>
+    <updated>2020-04-18T01:37:53.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;hello-world&quot;&gt;&lt;a href=&quot;#hello-world&quot; class=&quot;headerlink&quot; title=&quot;hello-world&quot;&gt;&lt;/a&gt;hello-world&lt;/h1&gt;&lt;p&gt;This post is for
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>simplegit-progit</title>
-    <link href="http://yoursite.com/2020/04/17/simplegit-progit/"/>
-    <id>http://yoursite.com/2020/04/17/simplegit-progit/</id>
+    <link href="http://ragerassist.cn/2020/04/17/simplegit-progit/"/>
+    <id>http://ragerassist.cn/2020/04/17/simplegit-progit/</id>
     <published>2020-04-17T12:48:00.000Z</published>
     <updated>2020-04-17T13:10:56.000Z</updated>
     
@@ -31,15 +54,15 @@
     </summary>
     
     
-      <category term="Git" scheme="http://yoursite.com/categories/Git/"/>
+      <category term="Git" scheme="http://ragerassist.cn/categories/Git/"/>
     
     
   </entry>
   
   <entry>
     <title>ticgit</title>
-    <link href="http://yoursite.com/2020/04/17/ticgit/"/>
-    <id>http://yoursite.com/2020/04/17/ticgit/</id>
+    <link href="http://ragerassist.cn/2020/04/17/ticgit/"/>
+    <id>http://ragerassist.cn/2020/04/17/ticgit/</id>
     <published>2020-04-17T12:47:31.000Z</published>
     <updated>2020-04-17T13:10:56.000Z</updated>
     
@@ -51,15 +74,15 @@
     </summary>
     
     
-      <category term="Git" scheme="http://yoursite.com/categories/Git/"/>
+      <category term="Git" scheme="http://ragerassist.cn/categories/Git/"/>
     
     
   </entry>
   
   <entry>
     <title>Icdiff</title>
-    <link href="http://yoursite.com/2020/04/17/Icdiff/"/>
-    <id>http://yoursite.com/2020/04/17/Icdiff/</id>
+    <link href="http://ragerassist.cn/2020/04/17/Icdiff/"/>
+    <id>http://ragerassist.cn/2020/04/17/Icdiff/</id>
     <published>2020-04-16T18:20:05.000Z</published>
     <updated>2020-04-17T06:16:01.000Z</updated>
     
@@ -71,7 +94,7 @@
     </summary>
     
     
-      <category term="Test" scheme="http://yoursite.com/categories/Test/"/>
+      <category term="Test" scheme="http://ragerassist.cn/categories/Test/"/>
     
     
   </entry>
