@@ -54,13 +54,12 @@
       </categories>
   </entry>
   <entry>
-    <title>simplegit-progit</title>
-    <url>/2020/04/17/simplegit-progit/</url>
-    <content><![CDATA[<h1 id="SimpleGit-Ruby-Library"><a href="#SimpleGit-Ruby-Library" class="headerlink" title="SimpleGit Ruby Library"></a>SimpleGit Ruby Library</h1><p>This library calls git commands and returns the output.</p>
-<p>Author : Scott Chacon</p>
+    <title>Hello World</title>
+    <url>/2020/04/18/hello-world/</url>
+    <content><![CDATA[<h1 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h1><p>This post is for testing.</p>
 <a id="more"></a>]]></content>
       <categories>
-        <category>Git</category>
+        <category>Uncategorized</category>
       </categories>
   </entry>
   <entry>
@@ -288,12 +287,13 @@ $ sudo gem install yard bacon</code></pre><p>I pull rubygems from testing to avo
       </categories>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2020/04/18/hello-world/</url>
-    <content><![CDATA[<h1 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h1><p>This post is for testing.</p>
+    <title>simplegit-progit</title>
+    <url>/2020/04/17/simplegit-progit/</url>
+    <content><![CDATA[<h1 id="SimpleGit-Ruby-Library"><a href="#SimpleGit-Ruby-Library" class="headerlink" title="SimpleGit Ruby Library"></a>SimpleGit Ruby Library</h1><p>This library calls git commands and returns the output.</p>
+<p>Author : Scott Chacon</p>
 <a id="more"></a>]]></content>
       <categories>
-        <category>Uncategorized</category>
+        <category>Git</category>
       </categories>
   </entry>
   <entry>
@@ -305,13 +305,13 @@ $ sudo gem install yard bacon</code></pre><p>I pull rubygems from testing to avo
 </script>]]></content>
   </entry>
   <entry>
-    <title>分类</title>
-    <url>/categories/index.html</url>
+    <title>关于</title>
+    <url>/about/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>关于</title>
-    <url>/about/index.html</url>
+    <title>分类</title>
+    <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
 </search>
