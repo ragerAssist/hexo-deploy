@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>hello-world</title>
-    <url>/2020/04/18/hello-world/</url>
-    <content><![CDATA[<h1 id="hello-world"><a href="#hello-world" class="headerlink" title="hello-world"></a>hello-world</h1><p>This post is for testing.</p>
-]]></content>
+    <title>simplegit-progit</title>
+    <url>/2020/04/17/simplegit-progit/</url>
+    <content><![CDATA[<h1 id="SimpleGit-Ruby-Library"><a href="#SimpleGit-Ruby-Library" class="headerlink" title="SimpleGit Ruby Library"></a>SimpleGit Ruby Library</h1><p>This library calls git commands and returns the output.</p>
+<p>Author : Scott Chacon</p>
+<a id="more"></a>]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
   </entry>
   <entry>
     <title>Icdiff</title>
@@ -60,14 +64,10 @@
       </categories>
   </entry>
   <entry>
-    <title>simplegit-progit</title>
-    <url>/2020/04/17/simplegit-progit/</url>
-    <content><![CDATA[<h1 id="SimpleGit-Ruby-Library"><a href="#SimpleGit-Ruby-Library" class="headerlink" title="SimpleGit Ruby Library"></a>SimpleGit Ruby Library</h1><p>This library calls git commands and returns the output.</p>
-<p>Author : Scott Chacon</p>
-<a id="more"></a>]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
+    <title>Hello World</title>
+    <url>/2020/04/18/hello-world/</url>
+    <content><![CDATA[<h1 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h1><p>This post is for testing.</p>
+]]></content>
   </entry>
   <entry>
     <title>ticgit</title>
