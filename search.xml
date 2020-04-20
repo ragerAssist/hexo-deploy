@@ -63,16 +63,6 @@
       </categories>
   </entry>
   <entry>
-    <title>simplegit-progit</title>
-    <url>/2020/04/17/simplegit-progit/</url>
-    <content><![CDATA[<h1 id="SimpleGit-Ruby-Library"><a href="#SimpleGit-Ruby-Library" class="headerlink" title="SimpleGit Ruby Library"></a>SimpleGit Ruby Library</h1><p>This library calls git commands and returns the output.</p>
-<p>Author : Scott Chacon</p>
-<a id="more"></a>]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-  </entry>
-  <entry>
     <title>ticgit</title>
     <url>/2020/04/17/ticgit/</url>
     <content><![CDATA[<p>Note: the original TicGit author has pulled all the TicGit-ng changes into his repository, creating a potentially confusing situation. The schacon TicGit repo, this one, is not consistently maintained. For up to date TicGit-ng info and code, check the canonical TicGit-ng repository at<br><a href="https://github.com/jeffWelling/ticgit" target="_blank" rel="noopener">https://github.com/jeffWelling/ticgit</a></p>
@@ -292,6 +282,16 @@ $ sudo gem install yard bacon</code></pre><p>I pull rubygems from testing to avo
 <p>Current Active Maintainer:<br>Jeff Welling                (<a href="mailto:jeff.welling@gmail.com">jeff.welling@gmail.com</a>)</p>
 <p>For a detailed list of contributors, use <code>git log</code>.</p>
 ]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>simplegit-progit</title>
+    <url>/2020/04/17/simplegit-progit/</url>
+    <content><![CDATA[<h1 id="SimpleGit-Ruby-Library"><a href="#SimpleGit-Ruby-Library" class="headerlink" title="SimpleGit Ruby Library"></a>SimpleGit Ruby Library</h1><p>This library calls git commands and returns the output.</p>
+<p>Author : Scott Chacon</p>
+<a id="more"></a>]]></content>
       <categories>
         <category>Git</category>
       </categories>
