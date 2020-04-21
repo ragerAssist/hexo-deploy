@@ -1265,7 +1265,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffde20;
+  background: #cb71b9;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1465,7 +1465,7 @@ pre .javascript .function {
   font-size: 0.8125em;
 }
 .footer {
-  color: #666;
+  color: #555;
   font-size: 0.875em;
   padding: 20px 0;
 }
