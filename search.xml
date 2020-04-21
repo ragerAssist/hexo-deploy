@@ -297,12 +297,9 @@ $ sudo gem install yard bacon</code></pre><p>I pull rubygems from testing to avo
       </categories>
   </entry>
   <entry>
-    <title>404</title>
-    <url>/404/index.html</url>
-    <content><![CDATA[<center>您访问的页面走失了，刷新试一试吧~</center>
-<script src="//qzonestyle.gtimg.cn/qzone/hybrid/app/404/search_children.js"
-        charset="utf-8" homePageUrl="/" homePageName="返回首页">
-</script>]]></content>
+    <title>分类</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>关于</title>
@@ -310,8 +307,11 @@ $ sudo gem install yard bacon</code></pre><p>I pull rubygems from testing to avo
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>分类</title>
-    <url>/categories/index.html</url>
-    <content><![CDATA[]]></content>
+    <title>404</title>
+    <url>/404/index.html</url>
+    <content><![CDATA[<center>您访问的页面走失了，刷新试一试吧~</center>
+<script src="//qzonestyle.gtimg.cn/qzone/hybrid/app/404/search_children.js"
+        charset="utf-8" homePageUrl="/" homePageName="返回首页">
+</script>]]></content>
   </entry>
 </search>
