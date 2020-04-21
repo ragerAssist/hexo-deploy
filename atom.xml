@@ -33,6 +33,8 @@
       <category term="Uncategorized" scheme="http://ragerassist.cn/categories/Uncategorized/"/>
     
     
+      <category term="test" scheme="http://ragerassist.cn/tags/test/"/>
+    
   </entry>
   
   <entry>
@@ -52,6 +54,12 @@
     
       <category term="Git" scheme="http://ragerassist.cn/categories/Git/"/>
     
+    
+      <category term="test" scheme="http://ragerassist.cn/tags/test/"/>
+    
+      <category term="git" scheme="http://ragerassist.cn/tags/git/"/>
+    
+      <category term="demo" scheme="http://ragerassist.cn/tags/demo/"/>
     
   </entry>
   
@@ -73,6 +81,10 @@
       <category term="Git" scheme="http://ragerassist.cn/categories/Git/"/>
     
     
+      <category term="test" scheme="http://ragerassist.cn/tags/test/"/>
+    
+      <category term="git" scheme="http://ragerassist.cn/tags/git/"/>
+    
   </entry>
   
   <entry>
@@ -92,6 +104,12 @@
     
       <category term="Test" scheme="http://ragerassist.cn/categories/Test/"/>
     
+    
+      <category term="test" scheme="http://ragerassist.cn/tags/test/"/>
+    
+      <category term="tool" scheme="http://ragerassist.cn/tags/tool/"/>
+    
+      <category term="diff" scheme="http://ragerassist.cn/tags/diff/"/>
     
   </entry>
   
