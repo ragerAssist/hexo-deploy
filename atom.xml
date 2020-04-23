@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ragerassist.cn/"/>
-  <updated>2020-04-23T06:10:30.000Z</updated>
+  <updated>2020-04-23T08:32:42.013Z</updated>
   <id>http://ragerassist.cn/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>原创：命令行备忘录 cheat 的安装与配置</title>
+    <link href="http://ragerassist.cn/2020/04/23/post-2-yc/"/>
+    <id>http://ragerassist.cn/2020/04/23/post-2-yc/</id>
+    <published>2020-04-23T06:27:06.000Z</published>
+    <updated>2020-04-23T08:32:42.013Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+
+        
+      
+    
+    </summary>
+    
+    
+      <category term="工具" scheme="http://ragerassist.cn/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="工具" scheme="http://ragerassist.cn/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="命令行" scheme="http://ragerassist.cn/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
+    
+      <category term="备忘录" scheme="http://ragerassist.cn/tags/%E5%A4%87%E5%BF%98%E5%BD%95/"/>
+    
+      <category term="Windows" scheme="http://ragerassist.cn/tags/Windows/"/>
+    
+      <category term="Windows PowerShell" scheme="http://ragerassist.cn/tags/Windows-PowerShell/"/>
+    
+  </entry>
   
   <entry>
     <title>转载：数字签名是什么？</title>
@@ -26,9 +62,9 @@
     <summary type="html">
     
       &lt;p&gt;本文转载自 &lt;a href=&quot;http://www.ruanyifeng.com/blog/2011/08/what_is_a_digital_signature.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;数字签名是什么？ - 阮一峰的网络日志&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;
+&lt;hr /&gt;
 &lt;p&gt;今天，我读到一篇&lt;a href=&quot;http://www.youdzone.com/signature.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;好文章&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;它用图片通俗易懂地解释了，”数字签名”（digital signature）和”数字证书”（digital certificate）到底是什么。&lt;/p&gt;
+&lt;p&gt;它用图片通俗易懂地解释了，&quot;数字签名&quot;（digital signature）和&quot;数字证书&quot;（digital certificate）到底是什么。&lt;/p&gt;
 &lt;p&gt;我对这些问题的理解，一直是模模糊糊的，很多细节搞不清楚。读完这篇文章后，发现思路一下子就理清了。为了加深记忆，我把文字和图片都翻译出来了。&lt;/p&gt;
 &lt;p&gt;文中涉及的密码学基本知识，可以参见我以前的&lt;a href=&quot;http://www.ruanyifeng.com/blog/2006/12/notes_on_cryptography.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;笔记&lt;/a&gt;。&lt;/p&gt;
     
