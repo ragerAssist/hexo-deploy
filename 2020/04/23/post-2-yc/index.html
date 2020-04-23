@@ -297,15 +297,15 @@
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt; cd C:\Users\惠普\Desktop\cheatsheets	<span class="comment"># 切换到存放有备忘录的文件夹</span></span><br><span class="line">&gt; cat git	<span class="comment"># 将文件git中的内容输出到终端</span></span><br><span class="line"><span class="comment"># To set your identity:</span></span><br><span class="line">git config -<span class="literal">-global</span> user.name &lt;name&gt;</span><br><span class="line">git config -<span class="literal">-global</span> user.email &lt;email&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># To set your editor:</span></span><br><span class="line">git config -<span class="literal">-global</span> core.editor &lt;editor&gt;</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
 <p>当然，为了提高效率，你还可以创建一个变量<code>$cheat</code>来存放该文件夹的路径，并将其放入Windows PowerShell的配置文件中<code>$PROFILE.CurrentUserAllHosts</code>，这样就可以更加方便的查找我们所需要的指令：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; cat <span class="variable">$cheat</span>\git</span><br></pre></td></tr></table></figure>
-<p>说到这里，你可能已经想要自己实现一个这样的软件，来更好的管理这些备忘录了，但我们无需这么做，虽然那将会很有趣，因为已经有人实现了这样的一个软件，那个软件就是<strong>cheat</strong>，该项目开源在GitHub上，这是该项目的地址 https://github.com/cheat/cheat。</p>
+<p>说到这里，你可能已经想要自己实现一个这样的软件，来更好的管理这些备忘录了，但我们无需这么做，虽然那将会很有趣，因为已经有人实现了这样的一个软件，那个软件就是<strong>cheat</strong>，该项目开源在GitHub上，这是该项目的地址 <a href="https://github.com/cheat/cheat" target="_blank" rel="noopener" class="uri">https://github.com/cheat/cheat</a>。</p>
 <p>我在这篇文章中将向你们讲述这个软件在Windows系统上的安装与配置的过程，因为在Windows系统中安装这个软件并不是那么方便的。</p>
 <hr />
-<p><strong>1、</strong>在cheat的下载地址 https://github.com/cheat/cheat/releases 下载Windows版本的cheat：</p>
+<p><strong>1、</strong>在cheat的下载地址 <a href="https://github.com/cheat/cheat/releases" target="_blank" rel="noopener" class="uri">https://github.com/cheat/cheat/releases</a> 下载Windows版本的cheat：</p>
 <p><img data-src="1.png" /></p>
 <p><strong>2、</strong>将解压后的文件夹放入任意一个磁盘，此时，你可以选择重命名该文件夹，就比如<code>cheat</code>，然后将子文件夹<code>dist</code>中的二进制文件<code>cheat-windows-amd64.exe</code>重命名为<code>cheat.exe</code>，然后你也可以选择给它换个地方：</p>
 <p><img data-src="2.png" /></p>
 <p><strong>3、</strong>将该可执行文件<code>cheat.exe</code>的路径添加进环境变量中，这样你就可以在命令行下使用该软件了，具体步骤就不在此处赘述了。</p>
-<p><strong>4、</strong>==手动==创建一个配置文件，你可以在命令行下执行如下命令：</p>
+<p><strong>4、</strong><font color="red">手动</font>创建一个配置文件，你可以在命令行下执行如下命令：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; cd D:\cheat</span><br><span class="line">&gt; cheat -<span class="literal">-init</span> &gt; conf.yml	<span class="comment"># 初始化一个配置文件并将其重定向到文件D:\cheat\conf.yml中</span></span><br></pre></td></tr></table></figure>
 <p><strong>5、</strong>创建一个环境变量来指定该配置文件的路径，在运行cheat时，cheat将会根据该路径寻找配置文件，若找到，则将加载该配置文件，其中环境变量的名字必须为<code>CHEAT_CONFIG_PATH</code>，值则为你刚刚创建的配置文件的路径：</p>
 <p><img data-src="3.png" /></p>
@@ -317,7 +317,7 @@
 <p>注意：<code>path:</code>与其后面的值(路径)之间必须要留一个空格</p>
 </blockquote>
 <p><strong>8、</strong>至此，cheat已经可以正常使用了，但是，此时你的<code>cheatsheets</code>文件夹中还没有任何一个备忘录，你可以选择创建一个自己的备忘录，并将其放入子文件夹<code>personal</code>中，也可以选择暂时使用社区提供的备忘录。如果你打算创建一个自己的备忘录，你应该遵循cheat的文档中给你的<a href="https://github.com/cheat/cheat" target="_blank" rel="noopener">指导</a>；如果你打算暂时使用社区提供的备忘录，则需要自己手动下载它们，下面将给出下载方法。</p>
-<p><strong>9、</strong> 你可以在这里下载社区提供的备忘录 https://github.com/cheat/cheatsheets：</p>
+<p><strong>9、</strong> 你可以在这里下载社区提供的备忘录 <a href="https://github.com/cheat/cheatsheets" target="_blank" rel="noopener" class="uri">https://github.com/cheat/cheatsheets</a>：</p>
 <p><img data-src="6.png" /></p>
 <p>单击图中的<code>Download ZIP</code>，将所有社区提供的备忘录下载到本地，解压缩后，将文件夹中的所有的备忘录移动到目录<code>...\cheatsheets\community</code>中，你可以选择将其中的文件夹<code>.github</code>删除，也可以留着；此时，打开cmd或者Windows PowerShell，在其中执行命令<code>cheat git</code>，你将会看到如下输出：</p>
 <p><img data-src="7.png" /></p>
@@ -325,8 +325,8 @@
 <p>注：你也可以使用git将整个仓库克隆到文件夹<code>community</code>中，以后当该仓库有更新时，可以方便的通过<code>git pull</code>来对该文件夹下的备忘录进行更新；此外，如果你觉得你并不需要所有这些社区提供的备忘录，比如你只想要备忘录<code>git</code>，你也可以选择只下载该文件，然后将其放入文件夹<code>community</code>中</p>
 </blockquote>
 <hr />
-<p><strong>说在最后</strong>：除了<strong>cheat</strong>，你也可以试一试另一个命令行备忘录工具<strong>navi</strong>，该工具给我们提供了一个交互式的命令行界面，你可以浏览备忘录并执行其中的命令，而不是将备忘录中的所有内容直接输出到终端，同样地，navi开源在GitHub上，这是仓库地址 https://github.com/denisidoro/navi；遗憾的是，navi并没有提供Windows可执行文件，目前，你只能在*nix系统以及mac系统上使用该软件。</p>
-<p>此外，你还可以试一试命令行下的模糊查找工具<strong>fzf</strong>，该软件可以与cheat整合，使得cheat能提供更强大的功能，这是仓库地址 https://github.com/junegunn/fzf。</p>
+<p><strong>说在最后</strong>：除了<strong>cheat</strong>，你也可以试一试另一个命令行备忘录工具<strong>navi</strong>，该工具给我们提供了一个交互式的命令行界面，你可以浏览备忘录并执行其中的命令，而不是将备忘录中的所有内容直接输出到终端，同样地，navi开源在GitHub上，这是仓库地址 <a href="https://github.com/denisidoro/navi" target="_blank" rel="noopener" class="uri">https://github.com/denisidoro/navi</a>；遗憾的是，navi并没有提供Windows可执行文件，目前，你只能在 *nix系统以及mac系统上使用该软件。</p>
+<p>此外，你还可以试一试命令行下的模糊查找工具<strong>fzf</strong>，该软件可以与cheat整合，使得cheat能提供更强大的功能，这是仓库地址 <a href="https://github.com/junegunn/fzf" target="_blank" rel="noopener" class="uri">https://github.com/junegunn/fzf</a>。</p>
 
     </div>
 
