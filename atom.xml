@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ragerassist.cn/"/>
-  <updated>2020-04-23T08:32:42.013Z</updated>
+  <updated>2020-04-23T14:53:26.000Z</updated>
   <id>http://ragerassist.cn/</id>
   
   <author>
@@ -21,18 +21,12 @@
     <link href="http://ragerassist.cn/2020/04/23/post-2-yc/"/>
     <id>http://ragerassist.cn/2020/04/23/post-2-yc/</id>
     <published>2020-04-23T06:27:06.000Z</published>
-    <updated>2020-04-23T08:32:42.013Z</updated>
+    <updated>2020-04-23T14:53:26.000Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          
-
-        
-      
+      &lt;p&gt;对于经常使用命令行的人来说，记忆那些很长很复杂但又经常用到的命令行指令无疑是一件令人痛苦的事情，因此有时候我们希望能有那样一个工具，来帮助我们记忆这些指令，以减轻我们记忆上的负担。&lt;/p&gt;
+&lt;p&gt;对于这个问题，一种解决办法是将这些指令统一记录在一个文档中，当你忘记了某个指令时，再打开这个文档进行查找；随着文档中记录的指令不断增加，你可能会想要将这些指令分开到不同的文档中，并给这些文档起一个对应的名字，就比如git、vim、diff等，并且你很可能会将这些文档放在同一个文件夹中以便于统一管理。那么具体怎么操作呢？&lt;/p&gt;
     
     </summary>
     
