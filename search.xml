@@ -1,60 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>原创：命令行备忘录 cheat 的安装与配置</title>
-    <url>/2020/04/23/post-2-yc/</url>
-    <content><![CDATA[<p>对于经常使用命令行的人来说，记忆那些很长很复杂但又经常用到的命令行指令无疑是一件令人痛苦的事情，因此有时候我们希望能有那样一个工具，来帮助我们记忆这些指令，以减轻我们记忆上的负担。</p>
-<p>对于这个问题，一种解决办法是将这些指令统一记录在一个文档中，当你忘记了某个指令时，再打开这个文档进行查找；随着文档中记录的指令不断增加，你可能会想要将这些指令分开到不同的文档中，并给这些文档起一个对应的名字，就比如git、vim、diff等，并且你很可能会将这些文档放在同一个文件夹中以便于统一管理。那么具体怎么操作呢？</p>
-<a id="more"></a>
-<p>我想可以这样来进行：假设你现在已经有了一个存放着各种指令文档的文件夹<code>C:\Users\惠普\Desktop\cheatsheets</code>，当你忘记了某个指令时，你可以执行以下命令来查找你所需要的指令：</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">&gt; cd C:\Users\惠普\Desktop\cheatsheets	<span class="comment"># 切换到存放有备忘录的文件夹</span></span><br><span class="line">&gt; cat git	<span class="comment"># 将文件git中的内容输出到终端</span></span><br><span class="line"><span class="comment"># To set your identity:</span></span><br><span class="line">git config -<span class="literal">-global</span> user.name &lt;name&gt;</span><br><span class="line">git config -<span class="literal">-global</span> user.email &lt;email&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># To set your editor:</span></span><br><span class="line">git config -<span class="literal">-global</span> core.editor &lt;editor&gt;</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
-<p>当然，为了提高效率，你还可以创建一个变量<code>$cheat</code>来存放该文件夹的路径，并将其放入Windows PowerShell的配置文件中<code>$PROFILE.CurrentUserAllHosts</code>，这样就可以更加方便的查找我们所需要的指令：</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">&gt; cat <span class="variable">$cheat</span>\git</span><br></pre></td></tr></table></figure>
-<p>进一步地，你可能想要将其封装成一个函数，甚至是一个cmdlet：</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">&gt; <span class="function"><span class="keyword">function</span> <span class="title">Get-Cheat</span> <span class="params">(<span class="variable">$Name</span>)</span></span> &#123;</span><br><span class="line">&gt;   cat <span class="variable">$cheat</span>\<span class="variable">$Name</span></span><br><span class="line">&gt; &#125;</span><br></pre></td></tr></table></figure>
-<p>说到这里，你可能已经想要自己动手实现一个这样的工具，来更好的管理这些备忘录了，但我们无需这么做，虽然那将会很有趣，因为已经有人为我们实现了它，那就是<strong>cheat</strong>，该项目开源在GitHub上，这是该项目的地址 <a href="https://github.com/cheat/cheat" target="_blank" rel="noopener" class="uri">https://github.com/cheat/cheat</a>。</p>
-<p>我在这篇文章中将向你们介绍这个软件在Windows系统上的安装与配置的过程，因为在Windows系统中安装这个软件并不是那么方便的。</p>
-<hr />
-<p><strong>1、</strong>在cheat的下载地址 <a href="https://github.com/cheat/cheat/releases" target="_blank" rel="noopener" class="uri">https://github.com/cheat/cheat/releases</a> 下载Windows版本的cheat：</p>
-<p><img data-src="1.png" /></p>
-<p><strong>2、</strong>将解压后的文件夹放入任意一个磁盘，此时，你可以选择重命名该文件夹，就比如<code>cheat</code>，然后将子文件夹<code>dist</code>中的二进制文件<code>cheat-windows-amd64.exe</code>重命名为<code>cheat.exe</code>，然后你也可以选择给它换个地方：</p>
-<p><img data-src="2.png" /></p>
-<p><strong>3、</strong>将该可执行文件<code>cheat.exe</code>的路径添加进环境变量中，这样你就可以在命令行下使用该软件了，具体步骤就不在此处赘述了。</p>
-<p><strong>4、</strong><font color="red">手动</font>创建一个配置文件，你可以在命令行下执行如下命令：</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">&gt; cd D:\cheat</span><br><span class="line">&gt; cheat -<span class="literal">-init</span> &gt; conf.yml	<span class="comment"># 初始化一个配置文件并将其重定向到文件D:\cheat\conf.yml中</span></span><br></pre></td></tr></table></figure>
-<p><strong>5、</strong>创建一个环境变量来指定该配置文件的路径，在运行cheat时，cheat将会根据该路径寻找配置文件，若找到，则将加载该配置文件，其中环境变量的名字必须为<code>CHEAT_CONFIG_PATH</code>，值则为你刚刚创建的配置文件的路径：</p>
-<p><img data-src="3.png" /></p>
-<p><strong>6、</strong>接下来，你需要创建一个文件夹<code>cheatsheets</code>来存放备忘录，备忘录分为两种，一种是社区(community)提供的，另一种则是用户自己(personal)创建的，因此你还需要在文件夹<code>cheatsheets</code>下创建两个子文件夹<code>community</code>和<code>personal</code>，然后你可以选择将文件夹<code>cheatsheets</code>放在文件系统中的任何一个位置，当然，为了方便管理，你最好将其与<code>cheat.exe</code>和<code>conf.yml</code>放在一起：</p>
-<p><img data-src="4.png" /></p>
-<p><strong>7、</strong>打开配置文件<code>conf.yml</code>，下拉到文件底部，将与<code>community</code>所对应的<code>path</code>的值设置为你刚刚创建的<code>community</code>文件夹的路径，同样地，将与<code>personal</code>对应的<code>path</code>的值设置为<code>personal</code>文件夹的路径：</p>
-<p><img data-src="5.png" /></p>
-<blockquote>
-<p>注意：<code>path:</code>与其后面的值(路径)之间必须要留一个空格</p>
-</blockquote>
-<p><strong>8、</strong>至此，cheat已经可以正常使用了，但是，此时你的<code>cheatsheets</code>文件夹中还没有任何一个备忘录，你可以选择创建一个自己的备忘录，并将其放入子文件夹<code>personal</code>中，也可以选择暂时使用社区提供的备忘录。如果你打算创建一个自己的备忘录，你应该遵循cheat的文档中给你的<a href="https://github.com/cheat/cheat" target="_blank" rel="noopener">指导</a>；如果你打算暂时使用社区提供的备忘录，则需要自己手动下载它们，下面将给出下载方法。</p>
-<p><strong>9、</strong> 你可以在这里下载社区提供的备忘录 <a href="https://github.com/cheat/cheatsheets" target="_blank" rel="noopener" class="uri">https://github.com/cheat/cheatsheets</a>：</p>
-<p><img data-src="6.png" /></p>
-<p>单击图中的<code>Download ZIP</code>，将所有社区提供的备忘录下载到本地，解压缩后，将文件夹中的所有的备忘录移动到目录<code>...\cheatsheets\community</code>中，你可以选择将其中的文件夹<code>.github</code>删除，也可以留着；此时，打开cmd或者Windows PowerShell，在其中执行命令<code>cheat git</code>，你将会看到如下输出：</p>
-<p><img data-src="7.png" /></p>
-<blockquote>
-<p>注：你也可以使用git将整个仓库克隆到文件夹<code>community</code>中，以后当该仓库有更新时，可以方便的通过<code>git pull</code>来对该文件夹下的备忘录进行更新；此外，如果你觉得你并不需要所有这些社区提供的备忘录，比如你只想要备忘录<code>git</code>，你也可以选择只下载该文件，然后将其放入文件夹<code>community</code>中</p>
-</blockquote>
-<hr />
-<p><strong>说在最后</strong>：除了<strong>cheat</strong>，你也可以试一试另一个命令行备忘录工具<strong>navi</strong>，该工具给我们提供了一个交互式的命令行界面，你可以浏览备忘录并执行其中的命令，而不是将备忘录中的所有内容直接输出到终端，同样地，navi开源在GitHub上，这是仓库地址 <a href="https://github.com/denisidoro/navi" target="_blank" rel="noopener" class="uri">https://github.com/denisidoro/navi</a>；遗憾的是，navi并没有提供Windows可执行文件，目前，你只能在 *nix系统以及mac系统上使用该软件。</p>
-<p>此外，你还可以试一试命令行下的模糊查找工具<strong>fzf</strong>，该软件可以与cheat整合，使得cheat能提供更强大的功能，这是仓库地址 <a href="https://github.com/junegunn/fzf" target="_blank" rel="noopener" class="uri">https://github.com/junegunn/fzf</a>。</p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>工具</tag>
-        <tag>命令行</tag>
-        <tag>备忘录</tag>
-        <tag>Windows</tag>
-        <tag>Windows PowerShell</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>转载：数字签名是什么？</title>
     <url>/2020/04/23/post-1-zz/</url>
     <content><![CDATA[<p>本文转载自 <a href="http://www.ruanyifeng.com/blog/2011/08/what_is_a_digital_signature.html" target="_blank" rel="noopener">数字签名是什么？ - 阮一峰的网络日志</a></p>
@@ -220,6 +166,191 @@
       </tags>
   </entry>
   <entry>
+    <title>原创：Git学习笔记(1) - 内部原理</title>
+    <url>/2020/04/29/post-3-yc/</url>
+    <content><![CDATA[<p>本文参考了 <strong><a href="https://git-scm.com/book/en/v2" target="_blank" rel="noopener">Pro Git book</a></strong> 第10章 <a href="https://git-scm.com/book/en/v2/Git-Internals-Plumbing-and-Porcelain" target="_blank" rel="noopener">Git Internals</a> 的相关内容。</p>
+<hr />
+<p>早期的Git被设计成一个内容寻址(content-addressable)文件系统，而不是一个完整的、用户友好的版本控制系统(VCS)，换句话说，Git本质上是一个文件系统，并在此之上提供了一套面向版本控制系统的工具。</p>
+<p>因此，Git除了包含面向最终用户的上层命令(high-level commands)，还包含了一部分用于完成底层工作的子命令，即底层命令(low-level commands)，大多数底层命令并不面向最终用户：它们更适合作为新工具的组件和自定义脚本的组成部分。</p>
+<blockquote>
+<p>注：关于全部的上层命令和底层命令，可以参阅<a href="https://git-scm.com/docs/git" target="_blank" rel="noopener">git的官方文档</a>。</p>
+</blockquote>
+<a id="more"></a>
+<p>当在一个目录下执行命令<code>git init</code>时，Git会在该目录下创建一个<code>.git</code>目录，该目录包含几乎所有Git存储和操作的东西。如果你想备份或者复制一个Git版本库，只需把这个目录拷贝至另一处即可。以下是一个全新的Git版本库的默认结构：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">C:\USERS\惠普\DESKTOP\TEST\.GIT</span><br><span class="line">|   config</span><br><span class="line">|   description</span><br><span class="line">|   HEAD</span><br><span class="line">|</span><br><span class="line">+--<span class="literal">-hooks</span></span><br><span class="line">|       applypatch<span class="literal">-msg</span>.sample</span><br><span class="line">|       commit<span class="literal">-msg</span>.sample</span><br><span class="line">|       fsmonitor<span class="literal">-watchman</span>.sample</span><br><span class="line">|       post<span class="literal">-update</span>.sample</span><br><span class="line">|       pre<span class="literal">-applypatch</span>.sample</span><br><span class="line">|       pre<span class="literal">-commit</span>.sample</span><br><span class="line">|       pre<span class="literal">-merge</span><span class="literal">-commit</span>.sample</span><br><span class="line">|       pre<span class="literal">-push</span>.sample</span><br><span class="line">|       pre<span class="literal">-rebase</span>.sample</span><br><span class="line">|       pre<span class="literal">-receive</span>.sample</span><br><span class="line">|       prepare<span class="literal">-commit</span><span class="literal">-msg</span>.sample</span><br><span class="line">|       update.sample</span><br><span class="line">|</span><br><span class="line">+--<span class="literal">-info</span></span><br><span class="line">|       exclude</span><br><span class="line">|</span><br><span class="line">+--<span class="literal">-objects</span></span><br><span class="line">|   +--<span class="literal">-info</span></span><br><span class="line">|   \--<span class="literal">-pack</span></span><br><span class="line">\--<span class="literal">-refs</span></span><br><span class="line">    +--<span class="literal">-heads</span></span><br><span class="line">    \--<span class="literal">-tags</span></span><br></pre></td></tr></table></figure>
+<p>其中以下4个部分我们通常无需关心：</p>
+<ol type="1">
+<li><code>config</code>文件是只针对该版本库的Git配置文件；</li>
+<li><code>description</code>文件仅供GitWeb程序使用；</li>
+<li><code>hooks</code> 目录包含客户端或者服务器端的钩子脚本(hook scripts)；</li>
+<li><code>info</code> 目录包含一个全局性排除(global exclude)文件，用以放置那些不希望被记录在 <code>.gitignore</code> 文件中的忽略模式(ignored patterns)。</li>
+</ol>
+<p>以下4个部分最为重要：</p>
+<ol type="1">
+<li><code>HEAD</code>文件指向当前所在的分支，即目前被检出(check out)的分支；</li>
+<li>尚未创建的<code>index</code>文件，即索引，或者也可以被称之为暂存区域；</li>
+<li><code>objects</code>目录用于存储所有的数据，即所有的对象；</li>
+<li><code>refs</code>目录存储对对象的引用，该目录包含3个子目录：<code>heads</code>、<code>tags</code>、<code>remotes</code>。</li>
+</ol>
+<hr />
+<h1 id="git对象">Git对象</h1>
+<p><code>objects</code>目录实质上是一个简单的键值对数据库(key-value data store)，该数据库中存储了所有的数据，即所有的对象。Git中的对象有4种：</p>
+<ol type="1">
+<li>blob对象，也就是二进制大对象(binary large object)，我们项目中的每一个文件都是以这种形式来存储的；</li>
+<li>tree对象，也就是树对象，如果说blob对象对应于文件，那么tree对象则对应于目录；</li>
+<li>commit对象，也就是提交对象，用于存储提交的相关信息；</li>
+<li>tag对象，即标签对象，用于存储附注标签(而不是轻量标签)的相关信息。</li>
+</ol>
+<p>Git对对象的存储遵循着以下规则：</p>
+<ol type="1">
+<li>Git识别出对象的类型，再计算出该对象数据内容的字节数，然后将它们拼接起来，生成头部(header)信息；</li>
+<li>将生成的头部信息(header)和原始数据(content)拼接在一起，生成待存储(store)的信息；</li>
+<li>计算待存储的信息的SHA-1校验和(checksum)，一个包含40个十六进制字符的字符串，这个校验和就是键值对数据库中的键(key)，也就是数据库中每一个数据的“唯一标识符”；</li>
+<li>利用zlib库压缩待存储的信息；</li>
+<li>在<code>objects</code>目录下新建一个子目录(如果该子目录不存在的话)，子目录的名字为40位校验和的前两个字符，再在该子目录下新建一个文件，文件名为40位校验和的后38个字符；</li>
+<li>打开新创建的文件，将压缩后的信息写到该文件中。</li>
+</ol>
+<blockquote>
+<p>注1：SHA-1全称为Secure Hash Algorithm 1，也就是安全哈希算法1，可以用来生成被称为消息摘要(digest)的哈希值，Git中使用该哈希算法来计算对象的校验和，即数据库中的数据的键值。 注2：由于<code>objects</code>目录实质上是一个数据库，因此保证一个数据库的效率是至关重要的，事实上，Git采用了很多的方法来做到这一点，正如以上所描述的，将待存储的信息压缩后再存储，以及将对象分别存放到不同的目录中，都是为了保证数据库的效率，前者大大的减少了数据库的体积，而后者则减少了查找数据所需的时间。</p>
+</blockquote>
+<p>所有的Git对象均以上述方式进行存储，区别仅在于类型标识——blob对象的头部信息以字符串“blob”开头，而tree对象则以“tree”开头；此外，blob对象的原始数据几乎可以是任何内容，而其它类型的对象的内容却有各自固定的格式。</p>
+<p>以下将逐个讲解前3种对象，其中tag对象将在<a href="#Git引用">Git引用</a>中进行讲解：</p>
+<h2 id="blob对象">blob对象</h2>
+<p>blob对象用于存储文件内容。</p>
+<p>可以通过底层命令<code>git hash-object</code>来计算对象的SHA-1校验和，当指定<code>-w</code>选项时，Git还会将该对象写入数据库中。</p>
+<p>对于已经存储在对象数据库中的数据，可以通过底层命令<code>git cat-file</code>从数据库中取回数据，当指定 <code>-p</code> 选项时，可指示该命令自动判断内容的类型，并为我们显示大致的内容；此外， 当为该命令指定<code>-t</code>选项时，可以让Git告诉我们其内部存储的任何对象类型，只要给定该对象的SHA-1值。</p>
+<p>blob对象虽然能存储每一个文件的内容，但却并没有保存文件的名字，此外，直接操作blob对象意味着我们必须记住文件的每一个版本所对应的SHA-1值，这并不现实。</p>
+<h2 id="tree对象">tree对象</h2>
+<p>tree对象能解决文件名保存的问题，也允许我们将多个文件组织到一起。一个tree对象包含了一条或多条tree对象条目(tree entry)，每个条目含有一个blob对象或者另一个tree对象的SHA-1校验和，以及相应的模式(mode)、类型、文件名信息。</p>
+<p>通常情况下，Git会根据某一时刻暂存区域的文件状态创建并记录一个对应的tree对象，因此，要创建一个tree对象，需要先使用底层命令<code>git update-index</code>来创建一个暂存区域(即index文件)，再通过底层命令<code>git write-tree</code> 将暂存区域的内容写入一个tree对象。</p>
+<blockquote>
+<p>注1：Git中的文件模式(mode)参考了常见的UNIX文件模式，对于blob对象来说，合法的文件模式只有3个：100644代表普通文件，100755代表可执行文件，120000代表符号链接； 注2：你还可以通过底层命令<code>git read-tree</code>来将tree对象读入暂存区域，使之成为另一个tree对象的子树。</p>
+</blockquote>
+<p>事实上，一个记录了某个时刻暂存区域的文件状态的tree对象就是对项目中某个时刻的文件版本的一次快照(snapshot)，而这样的tree对象正是Git版本库中的每一次提交的主干部分，可对于一次提交来说，我们不仅需要记录那个时刻的文件版本，还需要记录提交者以及提交日期等相关信息，此外，与blob对象一样，我们还是需要记忆每一个tree对象的SHA-1值。</p>
+<h2 id="commit对象">commit对象</h2>
+<p>事实上，我们每次运行命令<code>git add</code> 和<code>git commit</code>，Git所做的工作实质上就是如下几个步骤：</p>
+<ol type="1">
+<li><p>将被修改的文件保存为blob对象；</p></li>
+<li><p>更新暂存区域；</p></li>
+<li><p>记录tree对象；</p></li>
+<li><p>创建一个指明了顶层tree对象和父提交的commit对象。</p></li>
+</ol>
+<p>其中第4步可以通过底层命令<code>git commit-tree</code>来实现，该命令会创建一个commit对象，为此需要指定一个tree对象的SHA-1值、该提交的父提交对象(如果有的话)，以及提交说明。</p>
+<blockquote>
+<p>注：一个提交的父提交指的是该提交在其所处的分支中的前一个提交。</p>
+</blockquote>
+<p>一个commit对象包含的内容的格式如下：</p>
+<ol type="1">
+<li>先指定一个顶层tree对象，代表该提交所记录的快照，即某个时刻的文件版本；</li>
+<li>然后是可能存在的父提交，也就是一个指向分支中上一个结点的指针；</li>
+<li>之后是作者/提交者的信息，这个将根据<code>user.name</code>和<code>user.email</code>来设定；</li>
+<li>留空一行，最后是提交说明。</li>
+</ol>
+<p>以下是一个Git版本库中3种类型的对象之间的关系的实例：</p>
+<p><img data-src="1.png" /></p>
+<p>图中黄色的代表commit对象，蓝色的代表tree对象，白色的代表blob对象。每个commit对象都分别指向一个tree对象，并且第2/3个提交对象包含一个指向第1/2个提交对象的指针，Git以这种单向链表的方式将3个提交对象，也就是3次提交串联起来，构成了一个分支；第3个tree对象包含2个blob对象和1个tree对象的SHA-1校验和，如果此时检出(check out)第3次提交，你将会在工作树中发现两个文件<code>new.txt</code>和<code>test.txt</code>，和一个目录<code>bak</code>。</p>
+<hr />
+<h1 id="git引用">Git引用</h1>
+<p><code>refs</code>目录全称为<code>references</code>，正如该目录的名字所揭示的，该目录下存放的是指向目录<code>objects</code>中的对象的引用。<code>refs</code>目录包含3个子目录：<code>heads</code>、<code>tags</code>和<code>remotes</code>，分别存放着分支引用、标签引用和远程引用。</p>
+<p>接下来将逐个讲解这3种引用：</p>
+<h2 id="分支引用">分支引用</h2>
+<p>Git中的分支本质上是单向链表，在这个单向链表中，每一个结点都是一个commit对象，commit对象中所记录的父提交的SHA-1校验和就是指向上一个结点的指针，这样一来，只要我们知道了这个单向链表的头(head)，或者说分支的尖端(the tip of the branch)，我们就可以通过指针逐个的得到这个分支中的每一个提交记录，而<code>heads</code>就是Git用来存储Git版本库中每一个分支的头的目录。此外，出于方便，我们显然不希望使用SHA-1校验和来引用分支的头，而是更倾向于给分支的头取一个易于记忆的名字，比如<code>master</code>，这样一来，当我们需要引用分支的头，就比如切换分支时，只需要执行命令<code>git checkout master</code>，而不是<code>git checkout 1a4e01</code>这样难于记忆的命令。</p>
+<p>当运行类似于 <code>git branch &lt;branchname&gt;</code> 这样的命令时，Git实际上会运行底层命令<code>git update-ref</code> ，取得当前所在分支的最新提交所对应的SHA-1值，然后在目录<code>.git/refs/heads/</code>下新建一个名字为<code>&lt;branchname&gt;</code>的文件，再将SHA-1校验和存储到该文件中。</p>
+<p>现在的问题是，当你执行命令<code>git branch &lt;branchname&gt;</code>时，Git又是如何知道当前所在分支的最新提交所对应的SHA-1值的呢？答案是<code>HEAD</code>文件。<code>HEAD</code>文件通常是一个符号引用(symbolic reference)，指向当前所在的分支，所谓符号引用，表示它是一个指向其他引用的指针。当我们处在某个分支的尖端时，就比如<code>master</code>，此时，如果我们查看文件<code>HEAD</code>的内容，我们将会看到以下内容：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">&gt; cat .\.git\HEAD</span><br><span class="line">ref: refs/heads/master</span><br></pre></td></tr></table></figure>
+<p>然而在某些罕见的情况下，<code>HEAD</code>文件可能会包含一个Git对象的SHA-1值。当你在检出(check out)一个标签、提交或者远程分支，让你的Git版本库变成“分离HEAD”(detached head)状态时，就会出现这种情况。</p>
+<p>当我们在分支<code>&lt;branchname&gt;</code>下运行命令<code>git commit</code>时，Git会创建一个commit对象，并用<code>HEAD</code>文件中那个引用所指向的SHA-1值设置其父提交字段，然后，Git会将其存入对象数据库中，并获取该commit对象的SHA-1值，最后，再用该值替换文件<code>refs/heads/&lt;branchname&gt;</code>中存储的原有值。</p>
+<blockquote>
+<p>注：我们可以手动编辑<code>HEAD</code>文件，但更安全的做法是使用命令<code>git symbolic-ref</code>来查看或者设置<code>HEAD</code>引用的值。</p>
+</blockquote>
+<h2 id="标签引用">标签引用</h2>
+<p>Git中的标签有两种：轻量标签和附注标签。</p>
+<p>当我们执行命令<code>git tag &lt;tagname&gt; &lt;commit&gt;</code>或者命令<code>git update-ref refs/tags/&lt;tagname&gt; &lt;commit&gt;</code>来创建一个轻量标签时，Git会在目录<code>.git/refs/tags/</code>下新建一个名为<code>&lt;tagname&gt;</code>的文件，并将<code>&lt;commit&gt;</code>所指向的commit对象的SHA-1校验和存储到该文件中，这就是一个轻量标签的全部内容——一个固定的引用。</p>
+<p>然而，一个附注标签则更复杂一些。当我们执行命令<code>git tag -a -m &lt;msg&gt; &lt;tagname&gt; &lt;commit&gt;</code>来创建一个附注标签时，Git同样会在目录<code>.git/refs/tags/</code>下新建一个名为<code>&lt;tagname&gt;</code>的文件，但与轻量标签不一样的是，Git同时还会创建一个tag对象，并将该tag对象的SHA-1校验和写到文件<code>&lt;tagname&gt;</code>中，因此，附注标签中所记录的是一个指向tag对象的引用，而不是一个直接指向commit对象的引用。</p>
+<p>tag对象类似于一个commit对象，它包含标签创建者(tagger)与标签本身的相关信息、打标签的日期、附注信息，以及一个指向我们打了标签的那个commit对象的SHA-1值。主要的区别在于，tag对象<font color="red">通常</font>指向一个commit对象，而commit对象却总是指向一个tree对象。</p>
+<blockquote>
+<p>注意：tag对象并非必须指向某个commit对象，你可以对任意类型的Git对象打标签。例如，在Git源代码中，项目维护者将他们的GPG公钥添加为一个blob对象，然后对这个对象打了一个标签；Linux内核版本库同样有一个不指向commit对象的tag对象——首个被创建的tag对象所指向的是最初被引入版本库的那份内核源代码所对应的tree对象。</p>
+</blockquote>
+<h2 id="远程引用">远程引用</h2>
+<p>所谓远程引用，就是我们在克隆(clone)一个远程版本库或者对某个远程版本库执行推送(push)操作时，在本地版本库中所创建的远程跟踪分支(remote-tracking branch)，它是对这一时刻的远程版本库的各分支的状态所做的一次快照，或者说，远程引用就是记录远程版本库上各分支最后已知状态的书签。</p>
+<p>当我们执行命令<code>git push origin master</code>来将本地版本库上的<code>master</code>分支推送到远程版本库<code>origin</code>上的<code>master</code>分支时，Git会在目录<code>refs/remotes/origin/</code>下新建一个名为<code>master</code>的文件，并将本地<code>master</code>分支上的最近一次提交所对应的SHA-1值(也就是<code>refs/heads/master</code>所指向的SHA-1值)写入该文件，这就是对此刻的远程<code>master</code>分支的状态所做的一次快照。</p>
+<p>远程引用和本地分支(即位于<code>refs/heads</code>目录下的引用)之间最主要的区别在于，远程引用是只读的。虽然我们可以通过<code>git checkout</code>来检出远程引用，但此时将处于“分离HEAD”(detached head)的状态，在这种状态下你所做的所有更改都不会被记录下来。</p>
+<hr />
+<h1 id="包文件">包文件</h1>
+<p>在目录<code>.git/objects/</code>下还有两个子目录<code>info</code>和<code>pack</code>，这两个子目录与Git的垃圾回收(garbage collect)机制有关。</p>
+<p>Git最初向磁盘中存储对象时所使用的格式被称为“松散(loose)”对象格式，这种格式会将一个对象的所有的不同版本完整的保存下来，即使不同版本的对象之间的差异微乎其微，显然，如果此时Git只完整的保存其中一个，再保存其它对象与之前版本的差异内容，便能大大的节省数据库的空间并提高效率。事实上，Git可以这么做，不过需要满足一定的条件，当版本库中有太多的松散对象，或者你手动执行 <code>git gc</code> 命令，或者你向远程服务器执行推送操作时，就会触发Git的垃圾回收机制，Git会将数据库中的这些松散对象打包成一个被称之为“包文件(packfile)”的二进制文件。</p>
+<p>当Git对数据库中的松散对象进行打包时，Git会查找命名及大小相近的文件，并只保存文件不同版本之间的差异内容(也就是以补丁的形式存储文件)，最后生成一个包文件(.pack)和一个索引文件(.idx)，其中包文件包含了打包时从文件系统中移除的所有对象的内容，而索引文件则包含了包文件的偏移信息，我们通过索引文件就可以快速定位任何一个指定的对象。</p>
+<p>通过底层命令<code>git verify-pack</code>可以查看数据库中已打包的内容。值得注意的是，如果被打包的内容中包含一个文件的不同版本，不妨假设有两个文件版本，那么Git会完整的保存该文件的第二个版本，也就是最新的那个版本，而第一个版本，也就是该文件的原始版本，反而是以差异的方式进行保存的，并引用该文件的第二个版本。为什么呢？因为大部分情况下我们需要快速地访问文件的最新版本，而不是较原始的版本。</p>
+<blockquote>
+<p>注：Git并不会打包所有的对象。对于未被任何提交记录引用的对象，Git会认为它们是悬空(dangling)的，因而不会选择将它们打包进包文件中。什么时候对象数据库中会出现悬空的对象呢？其中一种情况是，当某个对象只被一个分支上的提交记录唯一地引用时，若我们此时删除这个分支，那么目录<code>refs/heads/</code>下的对应的引用将会被删除，但是我们在这个分支上所创建的所有对象依然存在，因而随着这个分支的删除，这些对象也就成为了悬空的对象。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+        <tag>MsysGit</tag>
+        <tag>版本控制系统</tag>
+        <tag>Windows</tag>
+        <tag>Windows PowerShell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>原创：命令行备忘录 cheat 的安装与配置</title>
+    <url>/2020/04/23/post-2-yc/</url>
+    <content><![CDATA[<p>对于经常使用命令行的人来说，记忆那些很长很复杂但又经常用到的命令行指令无疑是一件令人痛苦的事情，因此有时候我们希望能有那样一个工具，来帮助我们记忆这些指令，以减轻我们记忆上的负担。</p>
+<p>对于这个问题，一种解决办法是将这些指令统一记录在一个文档中，当你忘记了某个指令时，再打开这个文档进行查找；随着文档中记录的指令不断增加，你可能会想要将这些指令分开到不同的文档中，并给这些文档起一个对应的名字，就比如git、vim、diff等，并且你很可能会将这些文档放在同一个文件夹中以便于统一管理。那么具体怎么操作呢？</p>
+<a id="more"></a>
+<p>我想可以这样来进行：假设你现在已经有了一个存放着各种指令文档的文件夹<code>C:\Users\惠普\Desktop\cheatsheets</code>，当你忘记了某个指令时，你可以执行以下命令来查找你所需要的指令：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">&gt; cd C:\Users\惠普\Desktop\cheatsheets	<span class="comment"># 切换到存放有备忘录的文件夹</span></span><br><span class="line">&gt; cat git	<span class="comment"># 将文件git中的内容输出到终端</span></span><br><span class="line"><span class="comment"># To set your identity:</span></span><br><span class="line">git config -<span class="literal">-global</span> user.name &lt;name&gt;</span><br><span class="line">git config -<span class="literal">-global</span> user.email &lt;email&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># To set your editor:</span></span><br><span class="line">git config -<span class="literal">-global</span> core.editor &lt;editor&gt;</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+<p>当然，为了提高效率，你还可以创建一个变量<code>$cheat</code>来存放该文件夹的路径，并将其放入Windows PowerShell的配置文件中<code>$PROFILE.CurrentUserAllHosts</code>，这样就可以更加方便的查找我们所需要的指令：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">&gt; cat <span class="variable">$cheat</span>\git</span><br></pre></td></tr></table></figure>
+<p>进一步地，你可能想要将其封装成一个函数，甚至是一个cmdlet：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">&gt; <span class="function"><span class="keyword">function</span> <span class="title">Get-Cheat</span> <span class="params">(<span class="variable">$Name</span>)</span></span> &#123;</span><br><span class="line">&gt;   cat <span class="variable">$cheat</span>\<span class="variable">$Name</span></span><br><span class="line">&gt; &#125;</span><br></pre></td></tr></table></figure>
+<p>说到这里，你可能已经想要自己动手实现一个这样的工具，来更好的管理这些备忘录了，但我们无需这么做，虽然那将会很有趣，因为已经有人为我们实现了它，那就是<strong>cheat</strong>，该项目开源在GitHub上，这是该项目的地址 <a href="https://github.com/cheat/cheat" target="_blank" rel="noopener" class="uri">https://github.com/cheat/cheat</a>。</p>
+<p>我在这篇文章中将向你们介绍这个软件在Windows系统上的安装与配置的过程，因为在Windows系统中安装这个软件并不是那么方便的。</p>
+<hr />
+<p><strong>1、</strong>在cheat的下载地址 <a href="https://github.com/cheat/cheat/releases" target="_blank" rel="noopener" class="uri">https://github.com/cheat/cheat/releases</a> 下载Windows版本的cheat：</p>
+<p><img data-src="1.png" /></p>
+<p><strong>2、</strong>将解压后的文件夹放入任意一个磁盘，此时，你可以选择重命名该文件夹，就比如<code>cheat</code>，然后将子文件夹<code>dist</code>中的二进制文件<code>cheat-windows-amd64.exe</code>重命名为<code>cheat.exe</code>，然后你也可以选择给它换个地方：</p>
+<p><img data-src="2.png" /></p>
+<p><strong>3、</strong>将该可执行文件<code>cheat.exe</code>的路径添加进环境变量中，这样你就可以在命令行下使用该软件了，具体步骤就不在此处赘述了。</p>
+<p><strong>4、</strong><font color="red">手动</font>创建一个配置文件，你可以在命令行下执行如下命令：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">&gt; cd D:\cheat</span><br><span class="line">&gt; cheat -<span class="literal">-init</span> &gt; conf.yml	<span class="comment"># 初始化一个配置文件并将其重定向到文件D:\cheat\conf.yml中</span></span><br></pre></td></tr></table></figure>
+<p><strong>5、</strong>创建一个环境变量来指定该配置文件的路径，在运行cheat时，cheat将会根据该路径寻找配置文件，若找到，则将加载该配置文件，其中环境变量的名字必须为<code>CHEAT_CONFIG_PATH</code>，值则为你刚刚创建的配置文件的路径：</p>
+<p><img data-src="3.png" /></p>
+<p><strong>6、</strong>接下来，你需要创建一个文件夹<code>cheatsheets</code>来存放备忘录，备忘录分为两种，一种是社区(community)提供的，另一种则是用户自己(personal)创建的，因此你还需要在文件夹<code>cheatsheets</code>下创建两个子文件夹<code>community</code>和<code>personal</code>，然后你可以选择将文件夹<code>cheatsheets</code>放在文件系统中的任何一个位置，当然，为了方便管理，你最好将其与<code>cheat.exe</code>和<code>conf.yml</code>放在一起：</p>
+<p><img data-src="4.png" /></p>
+<p><strong>7、</strong>打开配置文件<code>conf.yml</code>，下拉到文件底部，将与<code>community</code>所对应的<code>path</code>的值设置为你刚刚创建的<code>community</code>文件夹的路径，同样地，将与<code>personal</code>对应的<code>path</code>的值设置为<code>personal</code>文件夹的路径：</p>
+<p><img data-src="5.png" /></p>
+<blockquote>
+<p>注意：<code>path:</code>与其后面的值(路径)之间必须要留一个空格</p>
+</blockquote>
+<p><strong>8、</strong>至此，cheat已经可以正常使用了，但是，此时你的<code>cheatsheets</code>文件夹中还没有任何一个备忘录，你可以选择创建一个自己的备忘录，并将其放入子文件夹<code>personal</code>中，也可以选择暂时使用社区提供的备忘录。如果你打算创建一个自己的备忘录，你应该遵循cheat的文档中给你的<a href="https://github.com/cheat/cheat" target="_blank" rel="noopener">指导</a>；如果你打算暂时使用社区提供的备忘录，则需要自己手动下载它们，下面将给出下载方法。</p>
+<p><strong>9、</strong> 你可以在这里下载社区提供的备忘录 <a href="https://github.com/cheat/cheatsheets" target="_blank" rel="noopener" class="uri">https://github.com/cheat/cheatsheets</a>：</p>
+<p><img data-src="6.png" /></p>
+<p>单击图中的<code>Download ZIP</code>，将所有社区提供的备忘录下载到本地，解压缩后，将文件夹中的所有的备忘录移动到目录<code>...\cheatsheets\community</code>中，你可以选择将其中的文件夹<code>.github</code>删除，也可以留着；此时，打开cmd或者Windows PowerShell，在其中执行命令<code>cheat git</code>，你将会看到如下输出：</p>
+<p><img data-src="7.png" /></p>
+<blockquote>
+<p>注：你也可以使用git将整个仓库克隆到文件夹<code>community</code>中，以后当该仓库有更新时，可以方便的通过<code>git pull</code>来对该文件夹下的备忘录进行更新；此外，如果你觉得你并不需要所有这些社区提供的备忘录，比如你只想要备忘录<code>git</code>，你也可以选择只下载该文件，然后将其放入文件夹<code>community</code>中</p>
+</blockquote>
+<hr />
+<p><strong>说在最后</strong>：除了<strong>cheat</strong>，你也可以试一试另一个命令行备忘录工具<strong>navi</strong>，该工具给我们提供了一个交互式的命令行界面，你可以浏览备忘录并执行其中的命令，而不是将备忘录中的所有内容直接输出到终端，同样地，navi开源在GitHub上，这是仓库地址 <a href="https://github.com/denisidoro/navi" target="_blank" rel="noopener" class="uri">https://github.com/denisidoro/navi</a>；遗憾的是，navi并没有提供Windows可执行文件，目前，你只能在 *nix系统以及mac系统上使用该软件。</p>
+<p>此外，你还可以试一试命令行下的模糊查找工具<strong>fzf</strong>，该软件可以与cheat整合，使得cheat能提供更强大的功能，这是仓库地址 <a href="https://github.com/junegunn/fzf" target="_blank" rel="noopener" class="uri">https://github.com/junegunn/fzf</a>。</p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+        <tag>Windows PowerShell</tag>
+        <tag>工具</tag>
+        <tag>命令行</tag>
+        <tag>备忘录</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>404</title>
     <url>/404/index.html</url>
     <content><![CDATA[<center>
@@ -231,14 +362,14 @@
 ]]></content>
   </entry>
   <entry>
-    <title>关于</title>
-    <url>/about/index.html</url>
+    <title>分类</title>
+    <url>/categories/index.html</url>
     <content><![CDATA[
 ]]></content>
   </entry>
   <entry>
-    <title>分类</title>
-    <url>/categories/index.html</url>
+    <title>关于</title>
+    <url>/about/index.html</url>
     <content><![CDATA[
 ]]></content>
   </entry>
